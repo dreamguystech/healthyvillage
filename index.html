@@ -1,0 +1,286 @@
+   
+    
+    
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+//mixpanel.init("5486ec7e29695b99b2b43a62e746bcb6");
+mixpanel.init("876fd5045d5d52facb212d5115b6e3c0");
+
+mixpanel.register({
+        "Device IP": "::1",
+        "Browser": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0",
+        "Referral": "",
+		"Device Type":"Desktop",
+		"OS":"",
+		"Product Type":"Web",
+		"Location":"::1",
+		"Practice ID":"",
+		"Doctor Name":"",
+		"User ID":""
+    });
+ 
+</script><!-- end Mixpanel -->
+	
+   
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <title>Choose Practice - yosi wp</title>
+        <link rel="shortcut icon" href="assets/img/favicon.gif">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link rel='stylesheet' id='googleFonts-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A400%2C300%2C500%2C700' type='text/css' media='all' />
+        <link href="assets/css/theme.css?v=1.9" rel="stylesheet">
+
+        <link href="assets/css/bootstrap-fileupload.css" rel="stylesheet">
+        <link href="assets/css/custom.css" rel="stylesheet">
+    </head>
+    <body class="subpagebody">
+        <!--        <div class="overlay" style="background: white; height: 100%; position: fixed; top: 0; width: 100%; z-index: 99998; padding: 0; text-align: center; ">
+                    <img style="bottom: 0;left: 0;margin: auto;position: absolute;right: 0;top: 0;width: 107px; z-index: 99999;" src="../assets/img/logoload.gif" />
+                </div>-->
+
+        <script type="text/javascript">
+            mixpanel.track("Applaunch", {"User ID": "::1"});
+        </script>
+        <header id="pageheader">
+            <div id="choosedocpage_header" style="display:none;">
+            	                
+            	<div class="practicelogo practiceyosilogo"><img src="assets/img/logo.png" onerror="this.src='assets/img/logo.png'" alt="Yosi" style="width:100%; max-width:100%;"></div><!--
+            	<div class="awtxt"><h2>Awesome!</h2></div>-->
+                <div class="awsubtxt">You are all set for your appointment.</div>
+                <div class="awsubtxt1">It is as simple as checking in for your flight and you can avoid the paperwork during your visit. It is easy.</div> 
+                 
+            </div>
+        
+            <div id="profileHeader" style="display:none;">
+            	 
+                <h4>Select the doctor you are visiting</h4> 
+                    
+            </div>
+            <div class="logowithbg" style="display:none;"> 
+            	<a title="yosi" href="/"> <img src="assets/img/logo-light1.png" class="" alt="yosi"> </a>
+                
+            </div>
+            <ul class="ycmenu-icons ycmenu" id="ycmenu" onclick="submenus()" style="display: none;">
+                <!--<li></li>
+                <li></li>
+                <li></li>-->
+            </ul>
+            <ul class="ycmlist" style="display: none;">
+                <!--<li><a href="https://yosicare.com/m/faq.html" target="_blank">FAQ</a></li>
+                <li><a href="https://yosicare.com/privacypolicy" target="_blank">Privacy Policy</a></li>
+                <li><a href="https://yosicare.com/termsofuse" target="_blank">Terms of Use</a></li>
+                <li class="lastmenu"><a href="javascript:;" id="yclogout">Logout</a></li>-->
+            </ul>
+        </header>
+        
+        <div id="loginheader" style="display:block;">
+        	<div id="downloadappheader">
+            	<div class="downheadleft">
+                	<img src="assets/img/downloadyosi.png" alt="Yosi" /><h2>Yosi - Patient Registration<br>Download the Free App</h2>
+                </div>
+                <div class="downheadright">
+                	<a href="https://yosicare.onelink.me/2987459126?pid=organic&af_prt=Yosicare&af_siteid=997396976&af_dp=yosicare://&af_web_dp=https://yosicare.com&practice_id=&practice_name=&invite_id=&doctor_id=&doctor_name=" class="getapp_btn yosi_for_free" target="_blank">Get App</a>
+                </div>
+            </div>
+            <div class="loginlogoheader">
+            	 
+                    <div class="practicelogo practiceyosilogo"><img src="assets/img/logo.png" alt="Yosi" /></div>
+                     
+                    <div class="loginlogotext">Enter your email to begin check-in. We will ask you a few basic questions.</div>
+                 
+            </div>
+        </div>
+
+        <div id="banner" style="display: none;">
+            <div class="login_page_logo_wrap">
+                <a title="yosi" href="/">
+                    <img src="assets/img/logo-light1.png" class="" alt="yosi">
+                </a>
+            </div>
+            <h2>Skip paperwork by answering a few questions</h2>
+        </div>
+
+    <main id="pagecontent">
+        <div id="htmlContent">
+        				
+                        <div id="emailcheck_html">
+                    <input type="hidden" value="https://yosicare.onelink.me/2987459126?pid=organic&af_prt=Yosicare&af_siteid=997396976&af_dp=yosicare://&af_web_dp=https://yosicare.com&practice_id=&practice_name=&invite_id=&doctor_id=&doctor_name=" id="appflyerlinkhidden" />
+                    <form id="login" class="yc-form" autocomplete="off" action="profile.html">
+                        <input type="hidden" name="action" value="ajaxylogin" />
+                        <div class="login-from" style="margin-bottom:0;">
+                            <div class="form-group">
+                                
+                                <input id="username" class="form-control" type="email" name="email" value="" placeholder="name@email.com">
+                                <input type="hidden" id="FrontImage" name="FrontImage" value="">
+                                <input type="hidden" id="BackImage" name="BackImage" value="">
+                            </div>
+                
+                            <div class="form-group">
+                                <!--<input type="submit" value="Proceed" class="yc-button primary large">-->
+                                <input id="proceed_login" type="submit" value="Begin Check-In" class="yc-button primary large">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="ycdownloadbox">
+                        <span>We do not spam, guaranteed.</span>
+                                           </div>
+			</div>
+			        </div>
+    </main>
+
+
+
+    <footer id="pagefooter"> </footer>
+    <div id="loading" style="text-align: center;display: none;">
+        <img src="assets/img/AcuantWebServices/processing.gif" alt="loading"/>
+    </div>
+    <div class="md-modal md-effect-1" id="incompletesteps">
+        <div class="md-content">
+            <div class="md-pop-content">
+                <h2>Your Profile is not fully completed some required fields are missing so please complete.</h2>
+            </div>
+            <div class="md-footer">
+                <a href="javascript:;" id="redirect_step" data-page="" data-title="" class="okbtn">ok</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="md-modal md-effect-1" id="sessionexpire">
+        <div class="md-content">
+            <div class="md-pop-content">
+                <h2>Your session has been expired!</h2>
+            </div>
+            <div class="md-footer">
+                <a href="javascript:;" id="redirect_location" data-page="" data-title="" class="okbtn">ok</a>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    
+    <div class="md-modal md-effect-1" id="noaccess">
+        <div class="md-content">
+            <div class="md-pop-content">
+                <h2>No Access Authorised Persons Only</h2>
+            </div>
+            <div class="md-footer">
+                <a href="javascript:;" id="redirect_site" data-page="" data-title="" class="okbtn">ok</a>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+    
+    <div class="md-modal md-effect-1" id="cc_confirm">
+        <div class="md-content">
+            <div class="md-pop-content">
+                
+            </div>
+            <div class="md-footer">
+                <a href="javascript:;" id="cc_confirm_yes" data-page="" data-title="" class="okbtn">Yes</a>
+                <a href="javascript:;" id="cc_confirm_no" data-page="" data-title="" class="okbtn">No</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                    <h4 class="modal-title">
+                        Image Captured</h4>
+                </div>
+                <div class="modal-body">
+                    <canvas id="captured-canvas" class="img-responsive">
+                    </canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="btn-retake" class="btn btn-default" data-dismiss="modal">
+                        Retake</button>
+                    <button id="btn-use-image" type="button" class="btn btn-primary">
+                        Use Image</button>
+                    <button id="btn-use-image-ins" type="button" class="btn btn-primary" style="display:none;">
+                        Use Image</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWRfo3Xtlj926B7XS0E-i2l0ss8Tv-vjI&callback=" type="text/javascript"></script>
+    <script src="assets/js/MiscJS/base.js"></script>
+    <script>
+            goog.require('goog.crypt.base64');</script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/MiscJS/bootstrap.js"></script>
+    <script src="assets/js/MiscJS/bootstrap-fileupload.js"></script>
+    <script src="assets/js/MiscJS/jquery.base64.js"></script>
+    <script src="assets/js/MiscJS/binaryajax.js"></script>
+    <script src="assets/js/MiscJS/exif.js"></script>
+    <script src="assets/js/MiscJS/canvasResize.js"></script>
+    <script src="assets/js/CSSNWebServiceJS/licensekey.js"></script>
+    <!--<script src="assets/js/CSSNWebServiceJS/driverslicense.js"></script>-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.js"></script>
+    <script src="assets/plugins/autocomplete/jquery.maskedinput-1.2.2.min.js"></script>
+    <script src="assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+    <script src="assets/js/fancybox.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
+    <script src="assets/js/additional-methods.min.js"></script>
+    <script src="assets/plugins/jSignature/jSignature.min.noconflict.js"></script>
+    <script type='text/javascript' src='assets/js/select2.js'></script>
+    <script src="assets/js/jquery.maskedinput.min.js"></script>
+    <script src="assets/js/jquery.mask.js"></script>
+    <script src="assets/js/jquery.masked.js"></script>
+    <script src="assets/js/jquery.nicescroll.min.js"></script> 
+    <script src="assets/js/yosiwebapp.js?v=3.1"></script>
+    <script>
+
+            window.onbeforeunload = function(e) {
+                confirm("Press a button!");
+                e.preventDefault();
+                return false;
+            };
+
+            function preloadFunc() {
+
+//                var redirectAction = 'ajaxmotpsubmit';
+//                var divcontent = ' ';
+//                var currentpage = '';
+//                var divid;
+//                if (divcontent) {
+//                    if (divcontent === 'emailcheck') {
+//                        divid = 'emailcheck';
+//                    } else if (divcontent === 'mobile-reach-you') {
+//                        divid = 'howreach';
+//                        redirectAction = 'ajaxmsendotp';
+//                    } else if (divcontent === 'mobile-security-code') {
+//                        divid = 'securitycode';
+//                        redirectAction = 'ajaxmotpsubmit';
+//                    }
+//
+//                    $('#htmlContent').load(currentpage + "#" + divcontent + "_html", {content: redirectAction}, function() {
+//                        $('#choosedoctor_html').hide();
+//                        $('#pageheader').hide();
+//                        $('#banner').show();
+//                        $('body').addClass('subpagebody');
+//                        $("#login").validate();
+//                    });
+//                }
+            }
+            window.onpaint = preloadFunc();
+
+    </script>
+</body>
+
+</html>
