@@ -85,6 +85,7 @@ $(document).ready(function(e) {
 			if(data.data.GeneralData.MaritalStatus.length > 0)
 			$('#select_maritalstatus option[value='+data.data.GeneralData.MaritalStatus+']').attr('selected','selected');
 			$("#dem_mar_sts").val($('#select_maritalstatus option:selected').text());
+			if(data.data.GeneralData.Employed.length > 0)
 			$("input[name=select_employed][value=" + data.data.GeneralData.Employed + "]").prop('checked', true);
 			$("#dem_enhn").val(data.data.GeneralData.EthnicityName);
 			$("#dem_race").val(data.data.GeneralData.RaceName);
