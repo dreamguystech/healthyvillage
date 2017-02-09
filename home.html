@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Health First</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="css/bootstrap-datepicker.css" rel="stylesheet">-->
+	<link href="css/theme.css?v=1.9" rel="stylesheet">
+	<!--<link href="css/bootstrap-fileupload.css" rel="stylesheet">-->
+</head>
+<body class="profile-page2">
+	<header id="pageheader" style="display:none;">
+		<div class="header">
+			<div class="panel-control-left"><a href="#"><img alt="Back" src="assets/img/menu2.png" width="21" height="19"></a></div>
+			<div class="site-title"><h4>My profile</h4></div>
+			<div class="panel-control-right"><a href="#"><img alt="Menu" src="assets/img/menu-icon.png" width="4" height="16"></a></div>
+		</div>
+	</header>
+	<div class="loginlogoheader logo-header profile-header">
+        <div class="margin-top-30">
+			<img src="assets/img/profile-img.png" alt="user" class="" width="65" height="65">
+        </div>
+        <div class="user-name"></div>
+        <div class="user-number"></div>
+        <div class="user-dob"></div>
+    </div>
+    
+	<main id="pagecontent" class="mobile-wrapper">
+    	<div id="htmlContent">
+			<div id="user-profile_html">
+				<div class="dr-search">
+					<div class="dr-search-input" id="doctorsearch_wrap">
+						<input class="yc-input form-control acInput" name="doctorsearch" id="doctorsearch" value="" placeholder="Search Doctor" autocomplete="off" type="text">
+					</div>
+				</div>
+				<div class="menu-link">
+					<ul class="media-list media-list-linked">
+						<li class="media">
+							<a href="events.html" class="media-link">
+								<div class="media-body media-middle text-nowrap">
+									<div class="menu-title">Calendar Events</div>
+								</div>
+								<div class="media-right media-middle text-nowrap">
+									<img src="assets/img/calendar.png" alt="" width="20" height="20">
+								</div>
+							</a>
+						</li>
+						<li class="media">
+							<a href="javascript:void(0);" class="media-link">
+								<div class="media-body media-middle text-nowrap">
+									<div class="menu-title">My Profile</div>
+								</div>
+								<div class="media-right media-middle text-nowrap">
+									<img src="assets/img/pro-icon.png" alt="" width="20" height="20">
+								</div>
+							</a>
+						</li>
+						<li class="media">
+							<a href="#" class="media-link">
+								<div class="media-body media-middle text-nowrap">
+									<div class="menu-title">Resource Finder</div>
+								</div>
+								<div class="media-right media-middle text-nowrap">
+									<img src="assets/img/finder.png" alt="" width="20" height="20">
+								</div>
+							</a>
+						</li>
+					</ul>
+                </div>
+			</div>
+            
+            <div id="myprofile_html" class="grid-view" style="display:none;">
+				<ul class="main">
+					<li class="top left">
+						<a href="mycare-team.html"><img src="assets/img/mycare-team.png" alt="" width="35" height="24"> <span class="menu-title2">My Care Team</span></a>
+					</li>
+					<li class="top right">
+						<a href="profile.html"><img src="assets/img/my-info.png" alt="" width="22" height="25"> <span class="menu-title2">My Info</span></a>
+					</li>
+					<li class="bottom left">
+						<a href="survey.html"><img src="assets/img/survey-question.png" alt="" width="34" height="23"> <span class="menu-title2">Survey Questions</span></a>
+					</li>
+					<li class="bottom right">
+						<a href="myactivity.html"><img src="assets/img/activity-history.png" alt="" width="19" height="23"> <span class="menu-title2">Activity History</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+    
+    <div id="doctordetail_html" style="display:none;">
+ 	 <form action="" method="post" class="yc-form form_mdocdet" id="form_mdoctordetail_info" data-track="Doctor Details">
+            <input type="hidden" name="action" value="ajaxmdoctordetailinfo" />
+            <input type="hidden" name="dpracticeid" id="dpracticeid" value="" />
+            <input type="hidden" name="did" id="did" value="" />
+            <input type="hidden" name="dname" id="dname" value="" />
+            
+            <input type="hidden" name="mapaddress" id="mapaddress" value="" />
+            <input type="hidden" name="lat" id="lat" value="" />
+            <input type="hidden" name="lng" id="lng" value="" />
+            <div class="docteraddress">
+                <div class="docteraddressdiv">
+                    <h2 class="reach-title"></h2>
+                    <h4 class="reach-subtitle"></h4>
+                    <div class="speciality_row">
+                            <span></span>
+                    </div>
+                    <div class="address_row"></div>
+                </div>
+                <div class="calbutton">
+                    <a href="tel://"><img src="assets/img/call-icon.png" width="39" height="39"  alt=""/></a> </div>
+            </div>
+
+            <div class="login-from">
+                <div class="form-group">
+                    <input type="submit" id="doc_submit" name="doc_submit" value="Proceed" class="yc-button primary large">
+                </div>
+            </div>
+        </form>
+        <div class="container">
+        <div id="map" style="width: 100%; height: 300px;"></div>
+    </div>
+         
+ </div>
+    
+    
+	</main>
+    
+    <footer id="pagefooter"> </footer>
+    <div id="loading" style="text-align: center;">
+        <img src="img/AcuantWebServices/ring.gif" alt="loading" width="66" height="66">
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/modernizr.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script type='text/javascript' src='js/select2.js'></script>-->
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery.slimscroll.js"></script>-->
+    <!--<script src="js/jquery.nicescroll.min.js"></script> -->
+   <!-- <script src="js/yosiwebapp.js?v=3.1"></script>
+   	-->
+    <script type='text/javascript' src='js/select2.js'></script>
+    <script src="js/maskedinput-1.2.2.min.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWRfo3Xtlj926B7XS0E-i2l0ss8Tv-vjI&callback=" type="text/javascript"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

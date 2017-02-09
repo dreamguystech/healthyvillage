@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Health First</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="css/bootstrap-datepicker.css" rel="stylesheet">-->
+	<link href="css/theme.css?v=1.9" rel="stylesheet">
+	<!--<link href="css/bootstrap-fileupload.css" rel="stylesheet">-->
+</head>
+<body class="questionnaire-page">
+	<header id="pageheader">
+		<div class="header">
+			<div class="panel-control-left"><a href="#"><img alt="Back" src="assets/img/left_arrow.png" width="10" height="16"></a></div>
+			<div class="site-title"><h4>Questionnnaire</h4></div>
+			<div class="panel-control-right"><a href="#"><img alt="Menu" src="assets/img/menu-icon.png" width="4" height="16"></a></div>
+		</div>
+		<div class="progress-section" style="display:none;">
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+			</div>
+		</div>
+	</header>
+    <main id="pagecontent">
+        <div id="htmlContent">
+			<div id="recentvisit_html">
+				<div class="question-tab">
+					 
+					<div class="question-header">
+						<h4>How worried are you about</h4>
+					</div>
+				
+					<form action="" id="question_submit">
+					<input name="action" id="action" value="answer_submit" type="hidden">
+					<input name="total_question_count" id="total_question_count" value="" type="hidden">
+					<div class="tab-content">
+                    	 
+						<div class=" tab-pane active" id="question">
+							<ul class="list-group question-list">    
+																
+								    																				
+							</ul>
+							<!--<input type="submit" value="Submit" id="submit_button" disabled="disabled">-->
+                            <div id="msg" class="survey_msg" style="color:red;text-align: center; margin-top: 10px;"> </div>
+							<input value="Submit" id="submit_button" name="submit_button" type="submit" style="display:none;">
+						</div>												
+				<!--  	 <input type="hidden" name="all_question_answer" id="all_question_answer" value=""> -->
+					</div>
+				</form>	
+				</div>
+			</div>
+		</div>
+    </main>
+    <footer id="pagefooter"> </footer>
+    <div id="loading" style="text-align: center; ">
+        <img src="img/AcuantWebServices/ring.gif" alt="loading" width="66" height="66">
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="js/survey.js"></script>
+</body>
+</html>

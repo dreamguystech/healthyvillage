@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Health First</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="css/bootstrap-datepicker.css" rel="stylesheet">-->
+	<link href="css/theme.css?v=1.9" rel="stylesheet">
+	<!--<link href="css/bootstrap-fileupload.css" rel="stylesheet">-->
+</head>
+<body class="page-view-profile">
+	<header id="pageheader">
+		<div class="header">
+			<div class="panel-control-left"><a href="#"><img alt="Back" src="assets/img/left_arrow.png" width="10" height="16"></a></div>
+			<div class="site-title"><h4>View Profile</h4></div>
+			<div class="panel-control-right"><a href="#"><img alt="Menu" src="assets/img/menu-icon.png" width="4" height="16"></a></div>
+		</div>
+	</header>
+	
+	<main id="pagecontent">
+        <div id="htmlContent" class="view-pro-det">
+            	<div class="dotstyle dotstyle-smalldotstroke" style="display:none;">
+					<ul>
+						<li class="current" data-id="view-profile_html"><a href="javascript:;">Personal Info</a></li>
+						<li data-id="insurance-card_html"><a href="javascript:;">Insurance Info</a></li>
+						<li data-id="general-info_html"><a href="javascript:;">General Info</a></li>
+						<li data-id="pcp-info_html"><a href="javascript:;">PCP Info</a></li>
+                        <li data-id="lifestyle-info_html"><a href="javascript:;">Lifestyle</a></li>
+						<li data-id="medical-info_html"><a href="javascript:;">Medical Info</a></li>
+						<li data-id="medication-info_html"><a href="javascript:;">Medication</a></li>
+					</ul>
+				</div>
+                <input type="hidden" id="frm_step" value="1" data-step="form_mpersonal_info" />
+                <div id="view-profile_html">
+                <div class="mobilevp">
+                    <ul class="vp_content profile">
+                        <li class="vp_header">
+                            <h2>About me</h2>
+                            <a data-incomplete="" data-step="1" data-id="26762" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                        </li>
+                    </ul>
+                </div>
+            	<form name="form_mpersonal_info" id="form_mpersonal_info" method="post" data-track="Personal Info" autocomplete="off" novalidate>
+					<input name="action" value="ajaxmpersonalinfo" type="hidden">
+					<input value="" id="photo_frontimage" name="photo_frontimage" type="hidden">
+					<div class="login-from">
+						<span style="text-align: center;color:red"> </span>
+						<div class="form-group">
+							<label>First Name</label>
+							<input class="form-control" id="firstname" name="firstname" value="" type="text" readonly>
+						</div>
+						<div class="form-group">
+							<label>Last Name</label>
+							<input class="form-control" id="lastname" name="lastname" value="" type="text" readonly>
+						</div>
+						<div class="form-group mb-0">
+							<div class="row">
+								<div class="col-md-6 yosi-form-field-radio">
+									<label>Gender</label><input class="form-control" id="pgender" value="" type="text" readonly>
+									<div class="genterradio" id="select_gender_wrap" style="display:none;">
+										<div class="radiooption">
+											<input id="select_gender_option" name="select_gender" value="Male" type="radio">
+											<label>Male</label>
+										</div>
+										<div class="radiooption">
+											<input id="select_gender_option" name="select_gender" value="Female" type="radio">
+											<label>Female</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 yc-form-field-dob">
+									<label>DOB</label>
+									<input class="form-control" id="pdob" name="pdob" value="" placeholder="MM/DD/YYYY" type="tel" readonly>
+									<input id="hiddenDateField" name="hiddenDate" value="" type="hidden">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Address 1</label>
+							<input class="form-control" name="address1" id="address1" value="" type="text" readonly>
+						</div>
+						<div class="form-group">
+							<label>Address 2</label>
+							<input class="form-control" name="address2" id="address2" value="" type="text" readonly>
+						</div>
+						<div class="form-group">
+							<label>Zipcode</label>
+							<input class="form-control" name="zipcode" id="zipcode" value="" type="tel" readonly>
+						</div>
+						<div class="form-group mb-0" style="display:none;">
+							<input name="submitpinfo" id="submitpinfo" value="Next" class="yc-button primary large" type="submit">
+						</div>
+					</div>
+				</form>
+            	</div>
+            	<div id="insurance-card_html">
+                <div class="mobilevp">
+                    <ul class="vp_content profile">
+                        <li class="vp_header">
+								<h2>My Insurance</h2>
+								<a data-incomplete="" data-step="3" data-id="26764" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+							</li>
+                    </ul>
+                </div>
+					<div id="theme-page" class="scancardpage">
+						<form name="formSubmit" action="#">
+							<div class="container">
+								<div class="starter-template">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-lg-12">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-lg-12">
+											<div id="container-webcam" style="display: none">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<strong>Webcam View</strong>&nbsp;<i id="help-icon" class="icon-info" title="" data-original-title="Click webcam area to capture."></i>
+													</div>
+													<div class="panel-body">
+														<div class="container-video">
+															<video id="webcam" class="thumbnail" autoplay width="640" height="480">
+															</video>
+														</div>
+														<div class="row">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+																<div class="btn-group" data-toggle="buttons">
+																	<label class="btn btn-primary active">
+																		<input name="options" id="rdoFront" type="radio">
+																		Front Image
+																	</label>
+																	<label class="btn btn-primary">
+																		<input name="options" id="rdoBack" type="radio">
+																		Back Image
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<strong>Captured Image</strong>
+													</div>
+													<div class="panel-body">
+														<div class="col-xs-6 col-sm-6 col-lg-6">
+															<canvas id="selected-canvas-front" width="640" height="480" class="thumbnail">
+															</canvas>
+															<canvas id="blank-canvas-front" width="640" height="480" style="display: none">
+															</canvas>
+														</div>
+														<div class="col-xs-6 col-sm-6 col-lg-6">
+															<canvas id="selected-canvas-back" width="640" height="480" class="thumbnail">
+															</canvas>
+															<canvas id="blank-canvas-back" width="640" height="480" style="display: none">
+															</canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="container-camera" style="display:none;">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-lg-12" >
+														<p class="scan-info-txt">We need your card image to verify insurance</p>
+														<p class="scan-info-txt-optional">(Optional)</p>
+													</div>
+													<div class="col-xs-6 col-sm-6 col-lg-6 frontBox" >
+														<div id="fileupload-container-front" class="fileupload fileupload-new" data-provides="fileupload">
+															<div class="fileupload-new thumbnail">
+																<img class="img-responsive" id="placehold-image-front" src="assets/img/AcuantWebServices/scan-front.jpg" alt="" width="104" height="73">
+															</div>
+															<div id="image-thumbnail-front" class="fileupload-preview fileupload-exists thumbnail">
+																<img src="assets/img/AcuantWebServices/scan-front.jpg" alt="" width="104" height="73">
+															</div>
+															<div>
+																<span class="btn btn-file btn-link btn-sm">
+																	<input id="input-image-front" name="medicalCardImageFront" type="file">
+																</span><a id="remove-button-front" href="#" class="btn btn-sm fileupload-exists" data-dismiss="fileupload" style="display:none;">Remove</a>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-6 col-sm-6 col-lg-6 backBox">
+														<div id="fileupload-container-back" class="fileupload fileupload-new" data-provides="fileupload">
+															<div class="fileupload-new thumbnail">
+																<img class="img-responsive" id="placehold-image-back" src="assets/img/AcuantWebServices/scan-back.jpg" alt="" width="104" height="73">
+															</div>
+															<div id="image-thumbnail-back" class="fileupload-preview fileupload-exists thumbnail">
+																<img src="assets/img/AcuantWebServices/scan-back.jpg" alt="" width="104" height="73">
+															</div>
+															<div>
+																<span class="btn btn-file btn-link btn-sm">
+																	<input id="input-image-back" name="medicalCardImageBack" type="file">
+																</span><a id="remove-button-back" href="#" class="btn btn-sm fileupload-exists" data-dismiss="fileupload" style="display:none;">Remove</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-lg-12">
+											<table style="margin-left: auto; margin-right: auto; text-align: left;">
+												<tbody>
+													<tr id="option-source" style="display: none;">
+														<td>
+															Select Source
+														</td>
+														<td>
+															<input id="chkImageSource" checked="" class="switch-large" data-label-icon="icon-fullscreen" data-on-label="&lt;i class='icon-camera'&gt;&lt;/i&gt;&nbsp;&lt;i class='icon-hard-drive'&gt;&lt;/i&gt;" data-off-label="&lt;i class='icon-webcam'&gt;&lt;/i&gt;" type="checkbox">
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="row">
+										<div id="div-controls" class="col-xs-12 col-sm-12 col-lg-12">
+											<div class="col-xs-12 col-sm-12 col-lg-12">
+												<input name="instype" id="instype" value="primary" type="hidden">
+												<button style="display:none;" id="btn-process-image-ins" type="button" class="bluebtn " data-rlink="" data-link="store-insurance-card" data-type="primary">Process</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="errorDiv" style="text-align: center; color: red; display:none;"></div>
+							</div>
+						</form>
+                        
+                        <form id="form_minsurance_info" method="post" class="yc-form insurance-form" data-track="Insurance Info" autocomplete="off" novalidate>
+					<input name="action" value="ajaxminsuranceinfo" type="hidden">
+                    <div id="no_insurance" class="form-group"><label class=""> <span>Are you a dependent?</span> </label><input class="form-control" id="ins_dep" value="" type="text" readonly></div>
+					<div class="primaryInsuranceColumn">
+						<input value="" id="primary_insuranceid" name="primary_insuranceid" type="hidden">
+						<input value="" id="primary_frontimage" name="primary_frontimage" type="hidden">
+						<input value="" id="primary_backimage" name="primary_backimage" type="hidden">
+						<input value="" id="primary_frontlink" name="primary_frontlink" type="hidden">
+						<input value="" id="primary_backlink" name="primary_backlink" type="hidden">
+						<div class="form-group yc-form-field-inshead dep_fd" style="display: none;">
+							<label class=""> <span>Are you a dependent?</span> </label>
+							<div class="input" >
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="primary_areyouinsured_N" name="primary_areyouinsured" value="Y" type="radio">
+									<label for="primary_areyouinsured_N">Yes</label>
+								</div>
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="primary_areyouinsured_Y" name="primary_areyouinsured" value="N" type="radio">
+									<label for="primary_areyouinsured_Y">No</label>
+								</div>
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="primary_areyouinsured_noins" name="primary_areyouinsured" value="D" type="radio">
+									<label for="primary_areyouinsured_noins">i dont have insurance</label>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+						</div>
+						<div class="login-from dependent-yes" id="firstIns_dependent" style="display: inline-block;">
+							<div class="form-group">
+								<label for="primary_insuredfname">Insured First Name</label>
+								<input name="primary_insuredfname" id="primary_insuredfname" class="form-control" value="" type="text" readonly>
+							</div>
+							<div class="form-group">
+								<label for="primary_insuredlname">Insured Last Name</label>
+								<input name="primary_insuredlname" id="primary_insuredlname" class="form-control" value="" type="text" readonly>
+							</div>
+							<div class="form-group">
+								<label for="primary_insureddob">Insured DOB</label>
+								<input name="primary_insureddob" id="primary_insureddob" class="form-control" value="" placeholder="MM/DD/YYYY" maxlength="10" type="tel" readonly>
+							</div>
+							<div class="form-group">
+								<label>Insured Gender</label><input class="form-control" id="ins_gen" value="" type="text" readonly>
+								<div class="genterradio" style="display:none;">
+									<div class="radiooption primary_insuredgender" style="margin-bottom:6px;">
+										<input id="primary_insuredgender_Male" name="primary_insuredgender" value="Male" class="validate[required]" type="radio" readonly>
+										<label for="primary_insuredgender_Male">Male</label>
+									</div>
+									<div class="radiooption" style="margin-bottom:6px;">
+										<input id="primary_insuredgender_Female" name="primary_insuredgender" value="Female" class="validate[required]" type="radio" readonly>
+										<label for="primary_insuredgender_Female">Female</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="primary_relationship">Insured Relationship</label><input class="form-control" id="ins_rel" value="" type="text" readonly>
+								<div class="customddWrap" id="primary_relationship_wrap" style="display:none;">
+									<select id="primary_relationship" name="primary_relationship" class="yc-input customdd">
+										<option value="">Relationship to Insured</option>
+										<option value="1" data-class="">Spouse</option>
+										<option value="2" data-class="">Son</option>
+										<option value="3" data-class="">Daughter</option>
+										<option value="4" data-class="">Father</option>
+										<option value="5" data-class="">Mother</option>
+										<option value="6" data-class="">Sister</option>
+										<option value="7" data-class="">Brother</option>
+										<option value="14" data-class="">Friend</option>
+										<option value="15" data-class="">Relative</option>
+									</select>
+									<div class="selected_icon "></div>
+								</div>
+							</div>
+						</div>
+						<div class="login-from dependent-no">
+							<div class="form-group">
+								<label for="primary_companyname">Insurance Company</label>
+								<div class="input searchInput" id="primary_companyname_wrap" style="position:relative;">
+									<input id="primary_companyname" class="yc-input form-control acInput" name="primary_companyname" value="" placeholder="Start typing to search" autocomplete="off" type="text" readonly>
+									<input name="primary_company_id" id="primary_company_hid" value="" type="hidden">
+									<input name="primary_company_name" id="primary_company_hname" value="" type="hidden">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="primary_policynumber">Policy Number</label>
+								<input name="primary_policynumber" id="primary_policynumber" class="form-control" value="" type="text" readonly>
+							</div>
+						</div>
+					</div>
+					<input value="1" id="insurancecount" name="insurancecount" type="hidden">
+                    
+                    <a class="yc-button addInsurance bluebtn" href="javascript:void(0);" data-instype="secondary" data-type="addIns" data-added="" style="display: block;">Add another insurance</a>
+                    
+                    <div class="secInsuranceColumn" style="display:none;">
+						<input value="" id="sec_insuranceid" name="sec_insuranceid" type="hidden">
+						
+						<div class="form-group yc-form-field-inshead" style="display: block;">
+							<label class=""> <span>Are you a dependent?</span> </label><input class="form-control" id="ins_secdep" value="" type="text" readonly>
+							<div class="input" style="display:none;">
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="sec_areyouinsured" name="sec_areyouinsured" value="Y" type="radio">
+									<label for="sec_areyouinsured_N">Yes</label>
+								</div>
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="sec_areyouinsured" name="sec_areyouinsured" value="N" type="radio">
+									<label for="primary_areyouinsured_Y">No</label>
+								</div>
+								<div class="radiooption" style="margin-bottom:6px;">
+									<input id="sec_areyouinsured" name="sec_areyouinsured" value="D" type="radio">
+									<label for="primary_areyouinsured_noins">i dont have insurance</label>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+						</div>
+						<div class="login-from dependent-yes" id="secIns_dependent" style="display: inline-block;">
+							<div class="form-group">
+								<label for="sec_insuredfname">Insured First Name</label>
+								<input name="sec_insuredfname" id="sec_insuredfname" class="form-control" value="" type="text" readonly>
+							</div>
+							<div class="form-group">
+								<label for="sec_insuredlname">Insured Last Name</label>
+								<input name="sec_insuredlname" id="sec_insuredlname" class="form-control" value="" type="text" readonly>
+							</div>
+							<div class="form-group">
+								<label for="sec_insureddob">Insured DOB</label>
+								<input name="sec_insureddob" id="sec_insureddob" class="form-control" value="" placeholder="MM/DD/YYYY" maxlength="10" type="tel" readonly>
+							</div>
+							<div class="form-group">
+								<label>Insured Gender</label><input class="form-control" id="ins_secgen" value="" type="text" readonly>
+								<div class="genterradio">
+									<div class="radiooption sec_insuredgender" style="margin-bottom:6px;">
+										<input id="sec_insuredgender" name="sec_insuredgender" value="Male" class="validate[required]" type="radio" readonly>
+										<label for="primary_insuredgender_Male">Male</label>
+									</div>
+									<div class="radiooption" style="margin-bottom:6px;">
+										<input id="sec_insuredgender" name="sec_insuredgender" value="Female" class="validate[required]" type="radio" readonly>
+										<label for="primary_insuredgender_Female">Female</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="sec_relationship">Insured Relationship</label><input class="form-control" id="ins_rel" value="" type="text" readonly>
+								<div class="customddWrap" id="sec_relationship_wrap" style="display:none;">
+									<select id="sec_relationship" name="sec_relationship" class="yc-input customdd">
+										<option value="">Relationship to Insured</option>
+										<option value="1" data-class="">Spouse</option>
+										<option value="2" data-class="">Son</option>
+										<option value="3" data-class="">Daughter</option>
+										<option value="4" data-class="">Father</option>
+										<option value="5" data-class="">Mother</option>
+										<option value="6" data-class="">Sister</option>
+										<option value="7" data-class="">Brother</option>
+										<option value="14" data-class="">Friend</option>
+										<option value="15" data-class="">Relative</option>
+									</select>
+									<div class="selected_icon "></div>
+								</div>
+							</div>
+						</div>
+						<div class="login-from dependent-no">
+							<div class="form-group">
+								<label for="primary_companyname">Insurance Company</label>
+								<div class="input searchInput" id="primary_companyname_wrap" style="position:relative;">
+									<input id="sec_companyname" class="yc-input form-control acInput" name="sec_companyname" value="" placeholder="Start typing to search" autocomplete="off" type="text" readonly>
+									<input name="sec_company_id" id="sec_company_id" value="" type="hidden">
+									<input name="sec_company_name" id="sec_company_name" value="" type="hidden">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="sec_policynumber">Policy Number</label>
+								<input name="sec_policynumber" id="sec_policynumber" class="form-control" value="" type="text" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="form-submit" style="display:none;">
+							<input value="Update" class="yc-button primary large" name="ins_submit" id="ins_submit" type="submit">
+						</div>
+				</form>
+					</div>
+				</div>
+            
+            <div id="general-info_html">
+            <div class="mobilevp">
+                 <ul class="vp_content">
+                    <li class="vp_header">
+                        <h2>Demographics</h2>
+                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                    </li>
+                </ul>
+                </div>
+				<form name="generalinfo" id="generalinfo" method="post" class="yc-form" data-track="General Info" autocomplete="off" novalidate>
+					<input id="profile-general" name="profile-general" value="Y" type="hidden">
+					<input name="action" value="ajaxmgeneralinfo" type="hidden">
+					<div style="color:red;text-align: center;"> </div>
+					<div class="yc-form-field form-group" style="display: block;">
+						<label class=""> <span>Are you currently employed?</span> </label><input class="form-control" id="dem_emp" value="" type="text" readonly>
+						<div class="input" style="display:none;">
+							<div class="radiooption" style="margin-bottom:6px;">
+								<input id="radio1" name="select_employed" value="Y" type="radio">
+								<label for="radio1">Yes</label>
+							</div>
+							<div class="radiooption" style="margin-bottom:6px;">
+								<input id="radio1" name="select_employed" value="N" type="radio">
+								<label for="radio2">No</label>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+					</div>
+					<div class="login-from dependent-yes">
+						<div class="form-group" style="display:none;" id="empcmpy">
+							<input id="employed_company" class="form-control" name="employed_company" value="" placeholder="Company Name" type="text" readonly>
+						</div>
+						<div class="form-group">
+							<label>SSN</label>
+							<input id="ssn" class="form-control" name="ssn" value="" placeholder="" type="tel" readonly>
+						</div>
+						<div class="form-group">
+							<label>Phone Number</label>
+							<input id="mobilenumber" class="form-control" name="mobilenumber" value="" placeholder="" type="tel" readonly>
+						</div>
+						<div class="form-group">
+                        	<label>Marital Status</label><input class="form-control" id="dem_mar_sts" value="" type="text" readonly>
+							<div class="customddWrap" id="select_maritalstatus_wrap" style="display:none;">
+								<select id="select_maritalstatus" name="select_maritalstatus" class="yc-input customdd" required>
+									<option value="">Marital Status</option>
+									
+								</select>
+								<div class="selected_icon "></div>
+							</div>
+						</div>
+						<div class="form-group"><label>Ethnicity & Race</label><input class="form-control" id="dem_enhn" value="" type="text" readonly>
+							<div class="selectdown customddWrap" style="position:relative;display:none;" id="select_ethinicity_wrap" >
+								<select id="select_ethinicity" name="select_ethinicity" class="yc-input select_raceethinicity customdd">
+										<option value="">Ethnicity & Race</option>
+								</select>
+								<div class="selected_icon "></div>
+							</div><label>Race</label><input class="form-control" id="dem_race" value="" type="text" readonly>
+							<div class="selectdown customddWrap" style="position:relative;display:none;" id="select_race_wrap" >
+								<select id="select_race" name="select_race" class="yc-input select_raceethinicity customdd">
+									<option value="">Race</option>
+								</select>
+								<div class="selected_icon "></div>
+							</div>
+						</div>
+						<div class="form-group" style="display:none;">
+							<input value="Next" class="yc-button primary large" name="gi_submit" id="gi_submit" type="submit">
+						</div>
+					</div>
+				</form>
+			</div>
+            
+            <div id="pcp-info_html">
+				<div class="mobilevp">
+                 <ul class="vp_content">
+                    <li class="vp_header">
+                        <h2>PCP Info</h2>
+                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                    </li>
+                </ul>
+                </div>
+				<div class="login-from dependent-yes">
+					<form name="mycontact" id="mycontact" method="post" class="yc-form" data-track="Emergency Info" autocomplete="off" >
+						<input name="action" value="ajaxmpcpinfo" type="hidden">
+						<div style="color:red;text-align:center"> </div>
+						<div class="form-group">
+							<label class="inner-title">Primary Care Physician</label>
+							<div class="searchInput login-from" id="pcp_wrap" style="display:block;">
+								<span class="dr_prefix">Dr. </span>
+								<input id="pcp" class="form-control acInput" name="pcp" value="" placeholder="Search primary doctor by typing" autocomplete="off" type="text">
+								<input name="pcp_id" id="pcp_hid" value="" type="hidden"><input name="pcp_name" id="pcp_hname" value="" type="hidden"><input name="pcp_phone" id="pcp_hphone" value="" type="hidden">
+							</div>
+							<div id="pcp_selected_hidden" class="form-control searchInput previousInput" style="display:none;"> - <span class="subname"></span></div>
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="pcpcontactnumber" value="" placeholder="My primary doctor’s phone" autocomplete="off" name="pcpcontactnumber" type="tel">
+						</div>
+						<div class="form-group">
+							<label class="inner-title">Contact, in case of emergency</label>
+							<input class="form-control" id="emc_firstname" name="emc_firstname" value="" placeholder="First Name" autocomplete="off" type="text">
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="emc_lastname" name="emc_lastname" value="" placeholder="Last Name" autocomplete="off" type="text">
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="emc_number" name="emc_number" value="" placeholder="Phone Number" autocomplete="off" type="tel">
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+                            <div id="relpcp" class="form-group"><label class="">Relationship</label><input class="form-control" id="rel_pcp" value="" type="text" readonly></div>
+								<div class="customddWrap" id="select_emc_relationship_wrap" style="display:none;">
+									<select id="select_emc_relationship" name="select_emc_relationship" class="yc-input customdd">
+										<option value="">Relationship</option>
+										
+									</select>
+									<div class="selected_icon "></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group mb-0" style="display:none;">
+							<input value="Next" class="yc-button primary large" name="pcpsubmit" id="pcpsubmit" type="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+            
+            
+            <div id="lifestyle-info_html">
+				<div class="mobilevp">
+                 <ul class="vp_content">
+                    <li class="vp_header">
+                        <h2>Lifestyle</h2>
+                        <a data-incomplete="" data-step="4" data-id="26766" class="editlifestyle" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                    </li>
+                </ul>
+                </div>
+				<form name="lifestyle" id="lifestyle" method="post" data-track="Lifestyle" autocomplete="off">
+					<div class="login-from dependent-yes">
+						<div class="form-group"><label>Cigarettes(per day)</label><input class="form-control" id="lf_cig" value="" type="text" readonly></div>
+						<div class="form-group">
+							<div class="customddWrap" id="select_smoking_wrap" style="display:none;">
+								<select id="select_smoking" name="select_smoking" class="yc-input customdd">
+									<option value="">Select</option>
+								</select>
+								<div class="selected_icon "></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Alcoholic Drinks(per week)</label><input class="form-control" id="lf_alc" value="" type="text" readonly>
+							<div class="customddWrap" id="select_drink_wrap" style="display:none;">
+								<select id="select_drink" name="select_drink" class="yc-input customdd">
+									<option value="">Select</option>
+								</select>
+								<div class="selected_icon "></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Recreational Drugs</label><input class="form-control" id="lf_rec" value="" type="text" readonly>
+							<div class="customddWrap" id="select_drugs_wrap" style="display:none;">
+								<select id="select_drugs" name="select_drugs" class="yc-input customdd" >
+									<option value="1">I dont take any</option>
+								</select>
+								<div class="selected_icon "></div>
+							</div>
+						</div>
+						<div class="form-group" style="display:none;">
+							<input value="Next" class="yc-button primary large" name="lfsubmit" id="lfsubmit" type="submit">
+						</div>
+					</div>
+				</form>
+			</div>
+                        
+            <div id="medical-info_html">
+            <div class="mobilevp">
+                 <ul class="vp_content">
+                    <li class="vp_header">
+                        <h2>My Health</h2>
+                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                    </li>
+                </ul>
+                </div>
+				
+				<div class="login-from medical-info">
+					<form autocomplete="off" class="yc-form" name="myhealth" id="form_mmedical_info" method="post" data-track="Medical History" novalidate>
+						<div class="form-container form-group">
+							<label>Do you have any medical condition?</label><input class="form-control" id="md_con" value="" type="text" readonly>
+							<div class="searchBoxWrap" id="pastmedicalcondition_wrap" style="display: none;">
+								<select id="select_pastmedicalcondition" name="select_pastmedicalcondition" data-id="pastmedicalcondition" class="health-data js-data-ajax js-states form-control select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
+									
+								</select>
+								
+								<input id="pmcJsonData" name="pmcJsonData" value="" type="hidden">
+							</div>
+						</div>
+						<div class="form-container form-group">
+							<label>Have you had any surgeries in the past?</label><input class="form-control" id="md_sug" value="" type="text" readonly>
+							<div class="searchBoxWrap" id="surgeries_wrap" style="display: none;">
+								<select id="select_surgeries" name="select_surgeries" data-id="surgeries" class="health-data js-data-ajax js-states form-control select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
+									
+								</select>
+								
+								<input id="surgeryJsonData" name="surgeryJsonData" value="" type="hidden">
+							</div>
+						</div>
+						<div class="form-container form-group">
+							<label class="">Are you allergic to anything?</label><input class="form-control" id="md_alg" value="" type="text" readonly>
+							<div class="searchBoxWrap searchInput" id="allergies_wrap" style="display: none;">
+								<select id="select_allergies" name="select_allergies" data-id="allergies" class="health-data js-data-ajax js-states form-control select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true"></select>
+								
+								<input id="allergyJsonData" name="allergyJsonData" value="[]" type="hidden">
+							</div>
+							<div id="select_allergies_hidden" class="selectedVaulesBox" style="display: none;"></div>
+						</div>
+						<div class="form-container form-group">
+							<label class="">What medical conditions run in your family?</label><input class="form-control" id="md_fam" value="" type="text" readonly>
+							<div class="searchBoxWrap searchInput" id="familyhistory_wrap" style="display: none;">
+								<select id="select_familyhistory" name="select_familyhistory" data-id="familyhistory" class="health-data js-data-ajax js-states form-control select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true"></select>
+								
+								<div id="relationshipData" style="display:none;">
+									<div class="relationshipHead">
+										<h3>Select family member with <span id="relFhName" data-id=""></span></h3>
+										<a class="done" href="javascript:;" id="selectedRelations">Done</a>
+									</div>
+									<ul class="relationshipList">
+										
+									</ul>
+									<input id="relationshipJsonData" name="relationshipJsonData" type="hidden">
+								</div>
+								<input id="familyJsonData" name="familyJsonData" value="[]" type="hidden">
+							</div>
+							<div id="select_familyhistory_hidden" class="selectedVaulesBox" style="display: none;"></div>
+						</div>
+						<input id="base_url_h" value="https://dev.yosicare.com/web/public/v2/" type="hidden">
+						<div class="yc_submit" style="display:none;">
+							<input value="Update" class="yc-button primary large" name="md_submit" id="md_submit" type="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+            
+            <div id="medication-info_html">
+				<div class="mobilevp">
+                 <ul class="vp_content">
+                    <li class="vp_header">
+                        <h2>Medication</h2>
+                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="assets/img/edit-icon2.png" width="15" height="15"></a>
+                    </li>
+                </ul>
+                </div>
+				<div class="login-from dependent-yes medication-form">
+					<form autocomplete="off" class="yc-form" name="pharmacy" id="pharmacy" method="post" data-track="Pharmacy">
+						<input name="action" value="ajaxmmedicationinfo" type="hidden"> 
+						<div style="color:red;text-align: center;"> </div>
+						<div class="form-group">
+							<label class="inner-title">Pharmacy</label><input class="form-control" id="ph_det" value="" type="text" readonly>
+							<div class="login-from searchInput" id="pharmacyaddress_wrap" style="position:relative; display:none;">
+								<select id="select_pharmacyaddress" name="pharmacyaddress" data-id="pharmacy" class="js-data-ajax js-states yc-input autocomplete">
+									
+								</select>
+								<input name="pharmacy_hid" id="pharmacy_hid" value="" type="hidden">
+								<input name="pharmacy_hname" id="pharmacy_hname" value="" type="hidden">
+								<input name="pharmacy_hphone" id="pharmacy_hphone" value="" type="hidden">
+							</div>
+						</div>
+						<div class="form-group">
+                        	<label class="inner-title">Zip Code</label>
+							<input id="pharmacyzipcode" class="form-control" name="pharmacyzipcode" value="" placeholder="Zip Code" type="tel">
+						</div>
+						<div class="form-group">
+							<input id="pharmacyphoneno" class="form-control" name="pharmacyphoneno" value="" type="hidden">
+						</div>
+						<div class="form-group">
+							<label class="inner-title">Medication</label>
+							<div class="input searchInput" id="select_medication1_wrap" style="position:relative;display:none;">
+								<input id="select_medication1" class="yc-input form-control acInput" name="select_medication1" value="" placeholder="Start typing to search" autocomplete="off" type="text">
+								<input name="medication_id" id="medication_hid" type="hidden"><input name="medication_name" id="medication_hname" type="hidden">
+							</div>
+						 
+						</div>
+						<div class="form-group">
+							<div class="medi_add_group_row" style="display:none;">
+								<div class="column frequency_column">
+									<div class="form-group">
+										<div class="customddWrap" id="select_medication_freq1_wrap" >
+											<select id="select_medication_freq1" class="yc-input customdd" >
+												<option value="">Frequency</option>
+											</select>
+											<div class="selected_icon"></div>
+										</div>
+									</div>
+								</div>
+								<input id="base_url_h" value="https://dev.yosicare.com/web/public/v2/" type="hidden">
+								<div class="column dosage_column">
+									<div class="form-group select_medication_dosage1_wrap">
+										<input class="form-control" name="select_medication_dosage1" id="select_medication_dosage1" value="" placeholder="Dosage" type="text">
+									</div>
+								</div>
+								<input id="medicationJsonData" name="medicationJsonData" value="" type="hidden">
+								<div class="column addbtn_column"> <div class="form-group"><a id="add_medi_data" href="javascript:;" class="addmedication bluebtn">Add</a> </div></div>
+								<div class="clearboth"></div>
+							</div>
+							<p class="status-medi"></p>
+							<ul id="addedMedicationList" class="mediList">
+								
+							</ul>
+						</div>
+						<div class="form-group" style="display:none;">
+							<input value="Next" class="yc-button primary large" name="medi_submit" id="medi_submit" type="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+			
+            <div id="profile-complete_html" style="display:none;">
+ 	<form autocomplete="off" class="yc-form" name="addappointment" action="" id="addappointment" method='post'>
+            <input type="hidden" name="action" value="ajaxmfinishinfo" />
+            <div class="login-from">
+                <div class="form-group">
+                    <label>How did you hear about us</label>
+                    <div class="input customddWrap" id="refsource_wrap">
+                        <select id="refsource" name="refsource" class="yc-input customdd">
+                            <option value="">Please Select</option>
+                            
+                        </select>
+                        <input type="hidden" id="refsourcedoctor" name="refsourcedoctor" />
+                        <div class="selected_icon"></div>
+                    </div>
+                </div>
+                <div class="form-group" style="display:none;" id="referaldoctor">
+                    <label>Referring Doctor?</label>
+                    <div class="searchInput" id="pcp_wrap">
+                    	<span class="dr_prefix">Dr. </span>
+                        <input id="drpcp" class="form-control" type="text" name="drpcp" value="" placeholder="Type to search doctor" autocomplete="off">
+                        <input type="hidden" name="drpcp_hid" id="drpcp_hid" value="">
+                        <input type="hidden" name="drpcp_hname" id="drpcp_hname" value="">
+                        <input type="hidden" name="drpcp_hphone" id="drpcp_hphone" value="">
+                    </div>
+                    <div id="pcp_selected_hidden" class="input searchInput previousInput" style="display:none;"></div>
+                   
+                </div>
+
+                <div class="form-group" style="display:none;" id="referalothers">
+                    <input id="refother" class="form-control" type="text" name="refother" value="" placeholder="How did you find us?">
+                </div>
+
+                <div class="form-group">
+                    <label>Reason for Visit?</label>
+                    <input id="reasonforvisit" class="form-control" type="text" name="reasonforvisit" value="">
+                </div>
+                <div class="form-group">
+                    <label>Is this visit a work related injury/accident?</label>
+                    <div class="genterradio">
+                        <!--name primary_insuredgender-->
+                        <div class="radiooption primary_insuredgender" style="margin-bottom:6px;">
+                            <input type="radio" name="relatedvisit" value="Y" id="relatedvisityes" >
+                            <label for="radio1">Yes</label>
+                        </div>
+                        <div class="radiooption" style="margin-bottom:6px;">
+                            <input type="radio" name="relatedvisit" value="N" id="relatedvisitno" checked="checked">
+                            <label for="radio2" checked="checked">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group yc-form-signfield" style="position:relative;">
+                    <div class="input">
+                        <div>
+                            <div id="content">
+                                <a id="clearsign" href="javascript:;">clear</a>
+                                <div id="signatureparent">
+                                    <div id="signature" class="yc-signature"></div>
+                                </div>
+
+                            </div>
+                            <div id="scrollgrabber"></div>
+                            <div id="signhere">Sign Here</div>
+                        </div>
+                        <div class="clearboth"></div>
+                        <input type="hidden" name="signature_capture" id="signature_capture"/>
+                        <input type="hidden" name="signature_data" id="signature_data"/>
+                    </div>
+                </div>
+                <div class="pagefoot">
+                    <p>By signing above,<br>
+                        I confirm I have read the practice policies.<br>
+                        <a href="javacript:void(0);" id="viewpdfform">click here to view form</a></p>
+                    <div id="formPlaceHolder" style="display: none"></div>
+                </div>
+                <p class="status"></p>
+                <div class="yc_submit">
+                        <input type="submit" id="cli_submit" name="cli_submit" class="yc-button primary large" value="Finish">
+                </div>
+            </div>
+        </form>
+        
+    <div class="md-modal md-effect-1" id="appoinmentSuccess">
+        <div class="md-content">
+            <div class="success_body">
+                <div class="success_content">
+                    <img src="assets/img/success_tick.png" alt="tickmark" width="65" height="65">
+                    <h4>You are now checked-in for your visit with <span></span></h4>
+                    <a class="successdonebtn" id="successlink" href="home.html">ok</a>
+                </div>
+                <div class="success_container">
+                    <h4>Download our FREE app and manage your health in one place</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+            
+            
+            <div class="md-modal md-effect-1 " id="non_appoinmentSuccess" >
+					<div class="md-content">
+						<div class="success_body">
+							<div class="success_content">
+								<img src="assets/img/success_tick.png" alt="tickmark" width="46" height="46">
+								<h4>Profile updated successfully</h4>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+		</div>
+    </main>
+    
+    <footer id="pagefooter"> </footer>
+    <div id="loading" style="text-align: center;">
+        <img src="img/AcuantWebServices/ring.gif" alt="loading" width="66" height="66">
+    </div>
+    <div class="md-overlay md-show"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/modernizr.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script type='text/javascript' src='js/select2.js'></script>-->
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery.slimscroll.js"></script>-->
+    <!--<script src="js/jquery.nicescroll.min.js"></script> -->
+   <!-- <script src="js/yosiwebapp.js?v=3.1"></script>
+   	-->
+    <script type='text/javascript' src='js/select2.js'></script>
+    <script src="js/maskedinput-1.2.2.min.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script src="plugins/jSignature/jSignature.min.noconflict.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
