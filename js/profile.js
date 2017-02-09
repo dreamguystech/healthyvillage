@@ -569,7 +569,7 @@ $(document).on('click',".vp_header a",function(){
 
 $("a.addInsurance").click(function(){
 	$(this).hide();
-	$(".primaryInsuranceColumn").hide(); $(".secInsuranceColumn").show();
+	$(".primaryInsuranceColumn").hide(); $(".secInsuranceColumn").show(); $("#sec_areyouinsured").parent().parent().show();
 });
 
 $('#primary_companyname').autocomplete(base_url+"mobile-app?page=searchInsurance", acOptions_insurance)
@@ -1460,7 +1460,14 @@ function formatRepoDataSelection(repo) {
 }
 });
 
-
+$(document).on('click', '.relationshipList li a', function(e) {
+            var $thischeckbox = $(this).find('input[type=checkbox]');
+            if ($thischeckbox.is(':checked')) {
+                $thischeckbox.prop('checked', false);
+            } else {
+                $thischeckbox.prop('checked', true); 
+            }
+        });
 $(document).on('click', '#selectedRelations', function(e) {
 			if ($('.relationshipList input:checked').val() == '' || $('.relationshipList input:checked').val() === undefined) {
 				$('#relationshipData').show();
