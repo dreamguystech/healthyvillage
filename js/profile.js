@@ -19,7 +19,7 @@ $(document).ready(function(e) {
 			$("#address1").val(data.data.PersonalData.Address1);
 			$("#address2").val(data.data.PersonalData.Address2);
 			$("#zipcode").val(data.data.PersonalData.Zip);
-			if(window.localStorage.getItem("pat_form") == "new"){
+			if(window.localStorage.getItem("pat_form") == "new"){ window.localStorage.removeItem("pat_form");
 				$(".vp_header a").each(function(index, element) {
 					$(this).parent().parent().parent().parent().hide();
 				});
@@ -440,7 +440,7 @@ $(document).on('click',".vp_header a",function(){
 	
 	function validateGender(){
 		var cphone  = $('input[name="select_gender"]:checked').val();
-		if(cphone == '')
+		if(cphone == '' || $('input[name="select_gender"]:checked').length == 0)
 		{
 			$('input[name="select_gender"]').parent().addClass("has-error");				
 			return false;
@@ -732,7 +732,7 @@ $('#generalinfo').submit(function(){
 
 	function validateEmp(){
 		var dem_emp  = $('input[name="select_employed]:checked"]').val();
-		if(dem_emp == '')
+		if(dem_emp == '' || $('input[name="select_employed"]:checked').length == 0)
 		{
 			$('#dem_emp').parent().addClass("has-error");				
 			return false;
