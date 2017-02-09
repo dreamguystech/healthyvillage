@@ -1555,7 +1555,7 @@ $('#form_mmedical_info').submit(function(){
 							$("#"+$("#frm_step").attr('data-step')).find('.mobilevp').hide();
 							$("#"+$("#frm_step").attr('data-step')).show();
 							$("#medi_submit").parent().show();
-							$("#medication-info_html, #pharmacyaddress_wrap, .medi_add_group_row").show();
+							$("#medication-info_html, #pharmacyaddress_wrap, .medi_add_group_row , #select_medication1_wrap").show();
 							$("#ph_det").hide();
 					}
 				}
