@@ -191,7 +191,7 @@ $(document).ready(function(e) {
                     "Id": data.data.MedicationsData[i]['Id'],
 					"Name": data.data.MedicationsData[i]['Name'],
                     "Dosage": data.data.MedicationsData[i]['Dosage'],
-                    "Frequency": $("#select_medication_freq1 option[value="+data.data.MedicationsData[i]['Frequency']+"]").text()
+                    "Frequency": data.data.MedicationsData[i]['Frequency']
                 });
 				}
 				
@@ -2034,7 +2034,7 @@ $('#addappointment').submit(function(){
 				success:function(data){ 
 					$("#loading").hide(); 
 					if(data.success == "Y"){
-						$(".appoinmentSuccess h4 span").empty().append(window.localStorage.getItem("prac_docname"));
+						$("#appoinmentSuccess h4 span").empty().append(window.localStorage.getItem("prac_docname"));
 						window.localStorage.removeItem('prac_id');
 						window.localStorage.removeItem('prac_doc');
 						window.localStorage.removeItem('prac_docname');

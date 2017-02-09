@@ -8,9 +8,18 @@ $("a.forgot-password").click(function(){
 	$("#form_typ").val('f');
 	return false;
 });
-
+$('#privacy-box').niceScroll({
+		cursorcolor: "#2f185c",
+        cursorborder: "0",
+        autohidemode: true,
+		//cursorfixedheight: 47,
+        cursormaxheight: 30
+	});
+	//$("#privacy_html").css('display','none');
 $(document).ready(function(e) {
-    setTimeout(function(){ $("#loading").hide(); },2000);
+    setTimeout(function(){ $("#loading").hide(); $("#privacy_html").css('display','none');},2000);
+	
+	
 	var slickOpts = {
 	slidesToShow: 1,
 	slidesToScroll: 1,
