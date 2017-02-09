@@ -7,22 +7,68 @@
 	<title>Health First</title>
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!--<link href="css/bootstrap-datepicker.css" rel="stylesheet">-->
 	<link href="css/theme.css?v=1.9" rel="stylesheet">
-	<!--<link href="css/bootstrap-fileupload.css" rel="stylesheet">-->
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
 </head>
-<body class="privacy-page">
-	<header id="pageheader" style="display:none;">
-		<div class="header">
-			<div class="panel-control-left"><a href="#"><img alt="Back" src="assets/img/menu2.png" width="21" height="19"></a></div>
-			<div class="site-title"><h4>My profile</h4></div>
-			<div class="panel-control-right"><a href="#"><img alt="Menu" src="assets/img/menu-icon.png" width="4" height="16"></a></div>
-		</div>
+<body class="signup-page">
+	<header id="pageheader">
 	</header>
+	<div class="loginlogoheader logo-header" style="display:none;">
+        <div class="practicelogo logo-img"><img src="img/logo.PNG" alt="Health First" ></div>
+        <div class="loginlogotext">
+            <span class="login">Please Login to Access Your Profile</span>
+            <span class="signup" style="display:none;">Set up a password to secure  your profile</span>
+        </div>
+    </div>
     
 	<main id="pagecontent" class="mobile-wrapper">
-		<div id="htmlContent">
-			<div id="privacy_html">
+    	<div id="emailcheck_html">
+				<div class="text-right">
+					<a href="" class="skip">Skip</a>
+				</div>
+				<div id="walkthrough-items">
+					<div class="walkthrough-item">
+						<div class="walkthrough-img"><img src="img/icon-01.png" alt="" width="134" height="134"></div>
+						<p class="walkthrough-text">
+							Praesent mauris orci, viverra a tempor eget, sagittis sed nulla. Praesent rutrum sem eget mi feugiat, sit amet viverra dolor tempor.  Morbi sem quam, lobortis et nunc ac, pretium lacinia arcu. Integer nulla dui, porttitor at leo eu, pulvinar aliquam odio.
+						</p>
+						<div class="walkthrough-btn">
+							<input type="submit" value="Next" class="yc-button primary large">
+						</div>
+					</div>
+					<div class="walkthrough-item">
+						<div class="walkthrough-img"><img src="img/icon-02.png" alt="" width="134" height="134"></div>
+						<p class="walkthrough-text">
+							Praesent mauris orci, viverra a tempor eget, sagittis sed nulla. Praesent rutrum sem eget mi feugiat, sit amet viverra dolor tempor.  Morbi sem quam, lobortis et nunc ac, pretium lacinia arcu. Integer nulla dui, porttitor at leo eu, pulvinar aliquam odio.
+						</p>
+						<div class="walkthrough-btn">
+							<input type="submit" value="Next" class="yc-button primary large">
+						</div>
+					</div>
+					<div class="walkthrough-item">
+						<div class="walkthrough-img"><img src="img/icon-03.png" alt="" width="134" height="134"></div>
+						<p class="walkthrough-text">
+							Praesent mauris orci, viverra a tempor eget, sagittis sed nulla. Praesent rutrum sem eget mi feugiat, sit amet viverra dolor tempor.  Morbi sem quam, lobortis et nunc ac, pretium lacinia arcu. Integer nulla dui, porttitor at leo eu, pulvinar aliquam odio.
+						</p>
+						<div class="walkthrough-btn">
+							<input type="submit" value="Next" class="yc-button primary large">
+						</div>
+					</div>
+					<div class="walkthrough-item">
+						<div class="walkthrough-img"><img src="img/icon-04.png" alt="" width="134" height="134"></div>
+						<p class="walkthrough-text">
+							Praesent mauris orci, viverra a tempor eget, sagittis sed nulla. Praesent rutrum sem eget mi feugiat, sit amet viverra dolor tempor.  Morbi sem quam, lobortis et nunc ac, pretium lacinia arcu. Integer nulla dui, porttitor at leo eu, pulvinar aliquam odio.
+						</p>
+						<div class="walkthrough-btn">
+							<input type="submit" value="Next" class="yc-button primary large">
+						</div>
+					</div>
+				</div>
+			</div>
+    
+    
+    		<div id="privacy_html" style="display:none;">
 				<div class="privacy-title">
 				Privacy Policy
 				</div>
@@ -49,22 +95,99 @@
 					</div>
 				</div>
 			</div>
-		</div>
+    
+    
+    
+    	<form method="post" autocomplete="off" name="consent" id="consent" style="display:none;">
+        <input type="hidden" name="cconf" id="cconf" value="" />
+            <div class="form-group">
+                    <input class="form-control" type="text" name="fname" id="fname" placeholder="Firstname">
+            </div>
+            <div class="form-group">
+                    <input class="form-control" type="text" name="lname" id="lname" placeholder="Lastname">
+            </div>
+            <div class="form-group" >
+                    <input class="form-control" type="text" name="dob" id="dob" placeholder="DOB (MM/DD/YYYY)"><div id="date-error-custom"></div>
+            </div>
+            <div class="form-group" >
+                    <input class="form-control" type="text" name="cphone" id="cphone" placeholder="Phone">
+                    <div class="checkbox">
+						<label><input type="checkbox" name="ccphone" id="ccphone" value="Y"> I provide consent</label>
+                </div>
+            </div>
+            <div class="form-group" >
+                    <input class="form-control" type="email" name="cemail" id="cemail" placeholder="Email">
+                    <div class="checkbox">
+						<label><input type="checkbox" name="ccemail" id="ccemail" value="Y"> I provide consent</label>
+					</div>
+            </div>
+            
+             <div class="form-group">
+                <input value="consent" class="yc-button primary large" name="submit" type="submit">
+            </div>
+            <div class="form-group text-center" id="show_signin">
+  				<a href="" style="color:#fff;">Login</a>
+            </div>
+        </form>
+    
+    
+        <form method="post" autocomplete="off" name="sign_in_up" id="sign_in_up" style="display:none;">
+        	<input type="hidden" name="form_typ" id="form_typ" value="i" />
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon mail-icon"></span> <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon password-icon"></span> <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group" style="display:none;">
+                <div class="input-group">
+                    <span class="input-group-addon confirm-pwd-icon"></span> <input class="form-control" type="password" name="con_password" id="con_password" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                    <a href="" class="forgot-password">Forgot Your Password?</a>
+                </div>
+            </div>
+             <div class="form-group mb-0">
+                <input value="Login" class="yc-button primary large" name="submit" id="submit" type="submit">
+            </div>
+        </form>
 	</main>
     
     <footer id="pagefooter"> </footer>
-    <div id="loading" style="text-align: center; display: none;">
+    <div id="loading" style="text-align: center;">
         <img src="img/AcuantWebServices/ring.gif" alt="loading" width="66" height="66">
     </div>
+    <div class="md-modal md-effect-1" id="appoinmentSuccess">
+        <div class="md-content">
+            <div class="success_body">
+                <div class="success_content">
+                    <b>Consent Confirmation</b>
+                </div>
+                <div class="success_container">
+                   <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
+				   <a href="javascript:void(0);" class="btn btn-confirm">I Agree</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/modernizr.js"></script>
+    <!--<script src="js/modernizr.js"></script>
     <script src="js/jquery.validate.js"></script>
-    <script type='text/javascript' src='js/select2.js'></script>
+    <script type='text/javascript' src='js/select2.js'></script>-->
 	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
 	<!--<script type="text/javascript" src="js/jquery.slimscroll.js"></script>-->
     <!--<script src="js/jquery.nicescroll.min.js"></script> -->
-    <script src="js/yosiwebapp.js?v=3.1"></script>
-   	<script src="js/app.js"></script>
+   <!-- <script src="js/yosiwebapp.js?v=3.1"></script>
+   	-->
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

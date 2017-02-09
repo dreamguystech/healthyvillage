@@ -1,7 +1,5 @@
 //var base_url = "https://dev.yosicare.com/healthyvillage-app/";
 var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
-var practiceId = 105701;
-var pname="Yosicare", psource="SMS", invite_id="33f065a083981153fdd53b5a2c3ffd41";
 
 $("a.forgot-password").click(function(){ 
 	$(this).parent().parent().hide();
@@ -340,9 +338,17 @@ $(".btn-confirm").on('click',function(){
 
 $(document).on('click',"a.skip",function(){
 	$("#loading").show();
+	$("#emailcheck_html").hide();
+	$("#privacy_html").show();
+	setTimeout(function(){ $("#loading").hide(); },500);
+	return false;
+});
+
+$(document).on('click',"#privacy_html a",function(){
+	$("#loading").show();
 	$(".loginlogotext .login").empty().append('Sign Up');
 	$(".loginlogoheader").show();
-	$("#emailcheck_html").hide();
+	$("#privacy_html").hide();
 	$("#consent").show();
 	setTimeout(function(){ $("#loading").hide(); },500);
 	return false;
