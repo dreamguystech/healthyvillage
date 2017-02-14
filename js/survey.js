@@ -150,3 +150,8 @@ $('body').on('click', '#submit_button', function(e){
 		
 			e.preventDefault();
 		});
+		
+$(document).on('click',"#pageheader .panel-control-left a",function(){
+	$("#loading").show(); 
+	window.location.href = "home.html";
+});

@@ -18,18 +18,21 @@ $('#privacy-box').niceScroll({
 	//$("#privacy_html").css('display','none');
 $(document).ready(function(e) {
     setTimeout(function(){ $("#loading").hide(); $("#privacy_html").css('display','none');},2000);
-	
-	
-	var slickOpts = {
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	arrows: false,
-	dots: true,
-	centerMode: true,
-	centerPadding: '0',
-	adaptiveHeight: true,
-    };
-    $('#walkthrough-items').slick(slickOpts);
+	$(".walkthrough-item .yc-button").click(function(){
+		$(this).parent().parent().hide(); 
+		if($(this).parent().parent().next().hasClass('walkthrough-item'))
+			$(this).parent().parent().next().show();
+		else
+		{
+			$("#loading").show();
+			$("#emailcheck_html").hide();
+			$("#privacy_html").show();
+			$('#privacy-box').getNiceScroll().resize();
+			setTimeout(function(){ $("#loading").hide(); },500);
+			return false;	
+		}
+		$(".dotstyle ul").find('li.current').removeClass('current').next('li').addClass('current');
+	});
 	
 	var email    = $("#email");
 	var password = $("#password");
@@ -349,6 +352,7 @@ $(document).on('click',"a.skip",function(){
 	$("#loading").show();
 	$("#emailcheck_html").hide();
 	$("#privacy_html").show();
+	$('#privacy-box').getNiceScroll().resize();
 	setTimeout(function(){ $("#loading").hide(); },500);
 	return false;
 });

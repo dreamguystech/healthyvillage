@@ -24,3 +24,7 @@ $(document).ready(function(e) {
 	},"json");
 	
 });
+$(document).on('click',"#pageheader .panel-control-left a",function(){
+	$("#loading").show(); 
+	window.location.href = "home.html";
+});

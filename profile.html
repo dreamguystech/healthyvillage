@@ -239,54 +239,54 @@
 						<input value="" id="primary_backimage" name="primary_backimage" type="hidden">
 						<input value="" id="primary_frontlink" name="primary_frontlink" type="hidden">
 						<input value="" id="primary_backlink" name="primary_backlink" type="hidden">
-						<div class="form-group yc-form-field-inshead dep_fd" style="display: none;">
+						<div class="form-group yc-form-field-inshead dep_fd" style="display: none;" >
 							<label class=""> <span>Are you a dependent?</span> </label>
 							<div class="input" >
 								<div class="radio radio-primary" style="margin-bottom:6px;">
-									<input id="primary_areyouinsured_N" name="primary_areyouinsured" value="Y" type="radio">
-									<label for="primary_areyouinsured_N">Yes</label>
+									<input id="primary_areyouinsured_N" name="primary_areyouinsured" value="Y" type="radio" data-id="0">
+									<label for="primary_areyouinsured_N" >Yes</label>
 								</div>
 								<div class="radio radio-primary" style="margin-bottom:6px;">
-									<input id="primary_areyouinsured_Y" name="primary_areyouinsured" value="N" type="radio">
-									<label for="primary_areyouinsured_Y">No</label>
+									<input id="primary_areyouinsured_Y" name="primary_areyouinsured" value="N" type="radio" data-id="0">
+									<label for="primary_areyouinsured_Y" >No</label>
 								</div>
 								<div class="radio radio-primary" style="margin-bottom:6px;">
-									<input id="primary_areyouinsured_noins" name="primary_areyouinsured" value="D" type="radio">
-									<label for="primary_areyouinsured_noins">i dont have insurance</label>
+									<input id="primary_areyouinsured_noins" name="primary_areyouinsured" value="D" type="radio" data-id="0">
+									<label for="primary_areyouinsured_noins" >i dont have insurance</label>
 								</div>
 								<div class="clearboth"></div>
 							</div>
 						</div>
 						<div class="login-from dependent-yes" id="firstIns_dependent" style="display: inline-block;">
-							<div class="form-group">
+							<div class="form-group" >
 								<label for="primary_insuredfname">Insured First Name</label>
-								<input name="primary_insuredfname" id="primary_insuredfname" class="form-control" value="" type="text" readonly>
+								<input name="primary_insuredfname" id="primary_insuredfname" class="form-control" value="" type="text" readonly data-id="0">
 							</div>
-							<div class="form-group">
+							<div class="form-group" >
 								<label for="primary_insuredlname">Insured Last Name</label>
-								<input name="primary_insuredlname" id="primary_insuredlname" class="form-control" value="" type="text" readonly>
+								<input name="primary_insuredlname" id="primary_insuredlname" class="form-control" value="" type="text" readonly data-id="0">
 							</div>
 							<div class="form-group">
 								<label for="primary_insureddob">Insured DOB</label>
-								<input name="primary_insureddob" id="primary_insureddob" class="form-control" value="" placeholder="MM/DD/YYYY" maxlength="10" type="tel" readonly>
+								<input name="primary_insureddob" id="primary_insureddob" class="form-control" value="" placeholder="MM/DD/YYYY" maxlength="10" type="tel" readonly data-id="0">
 							</div>
 							<div class="form-group">
 								<label>Insured Gender</label><input class="form-control" id="ins_gen" value="" type="text" readonly>
 								<div class="genterradio" style="display:none;">
 									<div class="radio radio-primary primary_insuredgender" style="margin-bottom:6px;">
-										<input id="primary_insuredgender_Male" name="primary_insuredgender" value="Male" class="validate[required]" type="radio" readonly>
-										<label for="primary_insuredgender_Male">Male</label>
+										<input id="primary_insuredgender_Male" name="primary_insuredgender" value="Male" class="validate[required]" type="radio" readonly data-id="0">
+										<label for="primary_insuredgender_Male" >Male</label>
 									</div>
 									<div class="radio radio-primary" style="margin-bottom:6px;">
-										<input id="primary_insuredgender_Female" name="primary_insuredgender" value="Female" class="validate[required]" type="radio" readonly>
-										<label for="primary_insuredgender_Female">Female</label>
+										<input id="primary_insuredgender_Female" name="primary_insuredgender" value="Female" class="validate[required]" type="radio" readonly data-id="0">
+										<label for="primary_insuredgender_Female" >Female</label>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="primary_relationship">Insured Relationship</label><input class="form-control" id="ins_rel" value="" type="text" readonly>
 								<div class="customddWrap" id="primary_relationship_wrap" style="display:none;">
-									<select id="primary_relationship" name="primary_relationship" class="yc-input customdd">
+									<select id="primary_relationship" name="primary_relationship" class="yc-input customdd form-control" data-id="0">
 										<option value="">Relationship to Insured</option>
 										<option value="1" data-class="">Spouse</option>
 										<option value="2" data-class="">Son</option>
@@ -313,13 +313,13 @@
 							</div>
 							<div class="form-group">
 								<label for="primary_policynumber">Policy Number</label>
-								<input name="primary_policynumber" id="primary_policynumber" class="form-control" value="" type="text" readonly>
+								<input name="primary_policynumber" id="primary_policynumber" class="form-control" value="" type="text" readonly data-id="0">
 							</div>
 						</div>
 					</div>
 					<input value="1" id="insurancecount" name="insurancecount" type="hidden">
                     
-                    <a class="yc-button addInsurance bluebtn" href="javascript:void(0);" data-instype="secondary" data-type="addIns" data-added="" style="display: block;">Add another insurance</a>
+                    <a class="yc-button addInsurance bluebtn" href="javascript:void(0);" data-instype="secondary" data-type="addIns" data-added="" style="display: none;">Add another insurance</a>
                     
                     <div class="secInsuranceColumn" style="display:none;">
 						<input value="" id="sec_insuranceid" name="sec_insuranceid" type="hidden">
@@ -369,9 +369,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="sec_relationship">Insured Relationship</label><input class="form-control" id="ins_rel" value="" type="text" readonly>
+								<label for="sec_relationship">Insured Relationship</label><input class="form-control" id="secins_rel" value="" type="text" readonly>
 								<div class="customddWrap" id="sec_relationship_wrap" style="display:none;">
-									<select id="sec_relationship" name="sec_relationship" class="yc-input customdd">
+									<select id="sec_relationship" name="sec_relationship" class="yc-input customdd form-control">
 										<option value="">Relationship to Insured</option>
 										<option value="1" data-class="">Spouse</option>
 										<option value="2" data-class="">Son</option>
@@ -451,7 +451,7 @@
 						<div class="form-group">
                         	<label>Marital Status</label><input class="form-control" id="dem_mar_sts" value="" type="text" readonly>
 							<div class="customddWrap" id="select_maritalstatus_wrap" style="display:none;">
-								<select id="select_maritalstatus" name="select_maritalstatus" class="yc-input customdd" required>
+								<select id="select_maritalstatus" name="select_maritalstatus" class="yc-input customdd form-control" required>
 									<option value="">Marital Status</option>
 									
 								</select>
@@ -518,7 +518,7 @@
 							<div class="col-md-12">
                             <div id="relpcp" class="form-group"><label class="">Relationship</label><input class="form-control" id="rel_pcp" value="" type="text" readonly></div>
 								<div class="customddWrap" id="select_emc_relationship_wrap" style="display:none;">
-									<select id="select_emc_relationship" name="select_emc_relationship" class="yc-input customdd">
+									<select id="select_emc_relationship" name="select_emc_relationship" class="yc-input customdd form-control">
 										<option value="">Relationship</option>
 										
 									</select>
@@ -639,7 +639,7 @@
 							</div>
 							<div id="select_familyhistory_hidden" class="selectedVaulesBox" style="display: none;"></div>
 						</div>
-						<input id="base_url_h" value="https://dev.yosicare.com/web/public/v2/" type="hidden">
+						<input id="base_url_h" value="https://healthfirst.yosicare.com/dev/web-api/public/v1/" type="hidden">
 						<div class="yc_submit" style="display:none;">
 							<input value="Update" class="yc-button primary large" name="md_submit" id="md_submit" type="submit">
 						</div>
@@ -776,7 +776,7 @@
                             <div id="content">
                                 <a id="clearsign" href="javascript:;">clear</a>
                                 <div id="signatureparent">
-                                    <div id="signature" class="yc-signature"></div>
+                                    <div id="signature" class="yc-signature" style="min-height:100px;"></div>
                                 </div>
 
                             </div>
