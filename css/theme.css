@@ -254,7 +254,7 @@ body.profile-signup .form-container .yc-button:hover{opacity:0.8;}
 #pagecontent .mobilevp li{list-style:none;border-bottom:1px solid #ddd;padding:7px 15px 5px;}
 #pagecontent .mobilevp li:last-child{border-bottom:0;}
 #pagecontent .mobilevp .vp_header{width:auto;margin:0;height:33px;text-indent:15px;background:#1e75ac;border:0!important;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;padding:0 0 0 0 !important;}
-#pagecontent .mobilevp .vp_header h2{font-family:"Source Sans Pro",sans-serif;font-size:13px;font-weight:700;padding:7px 0px;margin:0;position:absolute;color:#fff;}
+#pagecontent .mobilevp .vp_header h2{font-family:"Source Sans Pro",sans-serif;font-size:13px;font-weight:bold;padding:9px 0px;margin:0;position:absolute;color:#fff;}
 #pagecontent .mobilevp h4{margin-bottom:0;}
 #pagecontent .vp_container h4{color:#333;font-family:"Source Sans Pro",sans-serif;font-size:13px;font-weight:400 !important;line-height:18px;margin:0;min-height:18px;padding:3px 0 4px;}
 #pagecontent .mobilevp .vp_header > a{float:right;margin:0;padding:6px 10px 6px 0;text-align:center;}
@@ -956,3 +956,5 @@ body.profile-signup .form-container{margin:20px 2% 20px 2%;}
 .gender-select .select2-container--default .select2-selection--single .select2-selection__arrow {height: 40px;}
 .gender-select .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;}
 .page-view-profile .dotstyle {margin: -20px -15px 15px;}
+#pagecontent .yc-form #pharmacyaddress_wrap .select2-container--default .select2-selection--single{background:#f8fafc;border:1px solid #e4e4e4;}
+#pagecontent .yc-form #pharmacyaddress_wrap .select2-container--default .select2-selection--single .select2-selection__rendered{color:#333333;font-size:14px;line-height:inherit;padding-left:0;}
