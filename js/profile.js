@@ -2036,15 +2036,17 @@ $('#select_medication1')
 				type:"POST",
 				data:$('#pharmacy').serialize() + "&pat_id="+window.localStorage.getItem("pat_id")+"&pat_acctok="+window.localStorage.getItem("pat_acctok")+"&pat_reftok="+window.localStorage.getItem("pat_reftok"),
 				dataType:"json",
-				success:function(data){ $("#signature").jSignature('reset');
+				success:function(data){ 
 					$("#loading").hide(); 
 					window.localStorage.removeItem('pat_form');
 					if(data.success == "Y"){
 						if(window.localStorage.getItem("prac_id")){
+							$("html,body").animate({ scrollTop: 0 }, 600);
 							$("#pageheader .site-title h4").empty().append('Confirmation');
 							$("#medication-info_html, .dotstyle").hide();
 							$("#profile-complete_html").show();
-							$("#signature").jSignature('reset');
+							$("#signature").jSignature({'width':300,
+							'height':200});$("#signature").resize();
 						}else{
 						$('#non_appoinmentSuccess').addClass('md-show');
     					 $('.md-overlay').addClass('md-show');
@@ -2060,12 +2062,14 @@ $('#select_medication1')
 $("#app_submit").click(function(){
 	$(this).parent().hide();
 	if($("#app_submit").attr('data-step') >= 6){
+		$("html, body").animate({ scrollTop: 0 }, 600);
 		$("#pageheader .site-title h4").empty().append('Confirmation');
 		$("#htmlContent").removeClass('view-pro-det');
 		$("#view-profile_html, #insurance-card_html, #general-info_html, #pcp-info_html, #lifestyle-info_html, #medical-info_html, #medication-info_html").hide();
 		$("#medication-info_html, .dotstyle").hide();
 		$("#profile-complete_html").show();
-		$("#signature").jSignature('reset');
+		$("#signature").jSignature({'width':300,
+							'height':200});$("#signature").resize();
 	}else{
 		$('#incomplete_form ul').empty();
 		for(var i=$("#app_submit").attr('data-step');i<=5;i++){ 
@@ -2124,6 +2128,7 @@ $("#app_submit").click(function(){
 							'background-color': 'transparent',
 							'decor-color': 'transparent',
 							'lineWidth': 2,
+							
 						})
 			
 								 
