@@ -1,5 +1,4 @@
-//var base_url = "https://dev.yosicare.com/healthyvillage-app/";
-var base_url = "http://localhost/yosicare/hf-app/";
+var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
 $(".user-name").empty().append(window.localStorage.getItem("pat_name"));
 $(".user-number").empty().append(window.localStorage.getItem("pat_phone"));
 $(".user-dob").empty().append(window.localStorage.getItem("pat_dob"));

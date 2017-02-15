@@ -17,6 +17,14 @@ $('#privacy-box').niceScroll({
 	});
 	//$("#privacy_html").css('display','none');
 $(document).ready(function(e) {
+	window.localStorage.removeItem("pat_id");
+	window.localStorage.removeItem("pat_name");
+	window.localStorage.removeItem("pat_phone");
+	window.localStorage.removeItem("pat_dob");
+	window.localStorage.removeItem("pat_reftok");
+	window.localStorage.removeItem("pat_acctok");
+	if(window.localStorage.getItem("hf_app")){ $(".loginlogotext .login").empty().append('Sign Up Now'); $("#emailcheck_html, #privacy_html").hide(); $("#consent, .loginlogoheader").show();}
+	if(!window.localStorage.getItem("hf_app")) window.localStorage.setItem("hf_app",1)
     setTimeout(function(){ $("#loading").hide(); $("#privacy_html").css('display','none');},2000);
 	$(".walkthrough-item .yc-button").click(function(){
 		$(this).parent().parent().hide(); 
@@ -25,6 +33,7 @@ $(document).ready(function(e) {
 		else
 		{
 			$("#loading").show();
+			$('body').removeClass('signup-page').addClass('privacy-page');
 			$("#emailcheck_html").hide();
 			$("#privacy_html").show();
 			$('#privacy-box').getNiceScroll().resize();
@@ -49,7 +58,7 @@ $(document).ready(function(e) {
 	$('#sign_in_up').submit(function(){ 
 		if(validateEmail() & validatePassword() & validateCpassword())
 		{
-			var dataString ="uname="+$("#email").val()+"&pass="+$("#password").val()+"&act="+$("#form_typ").val()+"&ccemail="+$("#ccemail:checked").val()+"&ccphone="+$("#ccphone:checked").val()+"&fname="+fname.val()+"&lname="+lname.val()+"&dob="+dob.val()+"&cphone="+cphone.val();
+			var dataString ="uname="+$("#email").val()+"&pass="+$("#password").val()+"&act="+$("#form_typ").val()+"&ccemail="+$("#ccemail:checked").val()+"&ccphone="+$("#ccphone:checked").val()+"&fname="+fname.val()+"&lname="+lname.val()+"&dob="+dob.val()+"&cphone="+cphone.val()+"&cgender="+$('#fm_gender').val();
 			$.ajax({
 				url:base_url+"mobile-app?page=login",
 				type:"POST",
@@ -139,15 +148,17 @@ $(document).ready(function(e) {
 	var dob = $("#dob");
 	var cphone = $("#cphone");
 	var cemail = $("#cemail");
+	var fm_gender = $("#fm_gender");
 	
 	fname.on('blur keyup',validateFname);
 	lname.on('blur keyup',validateLname);
 	dob.on('blur keyup',validateDob);
 	cphone.on('blur keyup',validateCphone);
 	cemail.on('blur keyup',validateCemail);
+	fm_gender.on('blur keyup change',validateCgender);
 	
 	$("#consent").submit(function(){ 
-		if(validateFname() & validateLname() & validateDob() & validateCphone() & validateCemail()){ 
+		if(validateFname() & validateLname() & validateDob() & validateCphone() & validateCemail() & validateCgender()){ 
 			if($("#cconf").val() == 1){
 				$("#loading").show();
 				//fname:fname.val(),lname:lname.val(),dob:dob.val(),cphone:cphone.val(),cemail:cemail.val(),ccphone:$("#ccphone:checked").val(),ccemail:$("#ccemail:checked").val()
@@ -223,6 +234,16 @@ $(document).ready(function(e) {
 		}
 		
 		$("#cphone").parent().removeClass('has-error'); return true;	
+	}
+	function validateCgender(){
+		var fm_gender  = $('#fm_gender').val();
+		if(fm_gender == '')
+		{
+			$('#fm_gender').next().find('.selection span.select2-selection').addClass("has-error");				
+			return false;
+		}
+		
+		$("#fm_gender").next().find('.selection span.select2-selection').removeClass('has-error'); return true;	
 	}
 	
 	function validateCemail(){
@@ -350,6 +371,7 @@ $(".btn-confirm").on('click',function(){
 
 $(document).on('click',"a.skip",function(){
 	$("#loading").show();
+	$('body').removeClass('signup-page').addClass('privacy-page');
 	$("#emailcheck_html").hide();
 	$("#privacy_html").show();
 	$('#privacy-box').getNiceScroll().resize();
@@ -359,7 +381,8 @@ $(document).on('click',"a.skip",function(){
 
 $(document).on('click',"#privacy_html a",function(){
 	$("#loading").show();
-	$(".loginlogotext .login").empty().append('Sign Up');
+	$('body').removeClass('privacy-page').addClass('signup-page');
+	$(".loginlogotext .login").empty().append('Sign Up Now');
 	$(".loginlogoheader").show();
 	$("#privacy_html").hide();
 	$("#consent").show();
@@ -376,3 +399,8 @@ $("#show_signin a").click(function(){
 	setTimeout(function(){ $("#loading").hide(); },500);
 	return false;
 });
+
+ $(".js-example-basic-single").select2({
+               placeholder: "Gender",
+               minimumResultsForSearch: Infinity
+       });

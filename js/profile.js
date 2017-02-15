@@ -1,14 +1,15 @@
 var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
 $("#pagecontent").hide();
 $(document).ready(function(e) {
+	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
 	maritalList();
-	if(window.localStorage.getItem("prac_id")) demographicList();
+	if(window.localStorage.getItem("prac_id")){ demographicList(); $("#app_submit").parent().show();}
 	relationsList(); getLifestyle(); frequencylist();relationshipList();
 	$.post(base_url+"mobile-app?page=getDetails",{pat_id:window.localStorage.getItem("pat_id"),pat_acctok:window.localStorage.getItem("pat_acctok"),pat_reftok:window.localStorage.getItem("pat_reftok")},
 	function(data){
 		$("#pagecontent").show();
 		if(data.success == "Y"){
-			$("#frm_step").val(data.data.Step.Step);
+			$("#frm_step").val(data.data.Step.Step); $("#app_submit").attr('data-step',data.data.Step.Step);
 			$("#firstname").val(data.data.PersonalData.FirstName);
 			$("#lastname").val(data.data.PersonalData.LastName);
 			$("#pgender").val(data.data.PersonalData.Gender);
@@ -276,7 +277,7 @@ function relationsList(){
 	function(data){
 		if(data.success == "Y"){ 
 			for(var i=0;i<data.data.length;i++){
-			$("#select_emc_relationship").append('<option value="'+data.data[i]['Id']+'">'+data.data[i]['Relationship']+'</option>');
+			$("#select_emc_relationship, #primary_relationship, #sec_relationship").append('<option value="'+data.data[i]['Id']+'">'+data.data[i]['Relationship']+'</option>');
 			}
 		}
 	},"json");
@@ -323,18 +324,37 @@ function relationshipList(){
 	},"json");
 	
 }
-
-$(document).on('click',".vp_header a",function(){
+$(document).on('click',".vp_header a, .btn-cancel",function(){ 
 	$("#htmlContent").removeClass('view-pro-det');
 	$("#loading").show(); 
 	$(".vp_header a").each(function(index, element) {
         $(this).parent().parent().parent().parent().hide();
     });
-	var cur_form = $(this).parent().parent().parent().parent(); cur_form.show();
+	$("#app_submit").parent().hide();
+	if($(this).attr('class') == "btn btn-cancel"){
+		$(".md-modal").removeClass('md-show'); $(".md-overlay").removeClass('md-show');
+		//$("#app_submit").parent().hide();
+		var cur_form = $('a[data-step="'+$("#app_submit").attr('data-step')+'"]').parent().parent().parent().parent(); cur_form.show();
+	}else{
+		if(window.localStorage.getItem("pre_page") !='' && $("#app_submit").attr('data-step') <= 5){
+			if(window.localStorage.getItem("prac_id") !=''){
+				$('#incomplete_form ul').empty();
+				for(var i=$("#app_submit").attr('data-step');i<=5;i++){ 
+						if(i != 3)
+							$('#incomplete_form ul').append("<li><p>"+$('a[data-step="'+i+'"]').prev().text()+"</p></li>");
+					}
+				$('#incomplete_form').addClass('md-show');
+				$('.md-overlay').addClass('md-show');
+				$("#loading").hide();
+			return false;
+			}
+		}
+		var cur_form = $(this).parent().parent().parent().parent(); cur_form.show();
+	}
 	$(".dotstyle li").each(function(index, element) {
-		$(this).removeClass('current');
-		if($(this).attr('data-id') == cur_form.attr('id')) $(this).addClass('current');
-	});
+			$(this).removeClass('current');
+			if($(this).attr('data-id') == cur_form.attr('id')) $(this).addClass('current');
+		});
 	$(".dotstyle").show();
 	$(".site-title h4").empty().append($(".dotstyle").find('ul li.current a').text());
 	
@@ -345,7 +365,7 @@ $(document).on('click',".vp_header a",function(){
 		$("#pgender").hide(); $("#select_gender_wrap").show(); $("#submitpinfo").parent().show();
 	} 
 	if(cur_form.attr('id') == "insurance-card_html"){
-		$("#no_insurance, #ins_secdep, #ins_gen, #ins_secgen, #ins_rel").hide(); $(".dep_fd, .genterradio, .sec_insuredgender, #primary_relationship_wrap").show(); $("#ins_submit").parent().show(); $("#ins_secdep").next('div').show();
+		$("#no_insurance, #ins_secdep, #ins_gen, #ins_secgen, #ins_rel").hide(); $(".dep_fd, .genterradio, .sec_insuredgender, #primary_relationship_wrap").show(); $("#ins_submit").parent().show(); $("#ins_secdep").next('div').show(); $("#primary_companyname_wrap, #sec_companyname_wrap").addClass('searchInput');
 	}
 	if(cur_form.attr('id') == "general-info_html"){
 		 $("#gi_submit").parent().show(); $("#dem_mar_sts, #dem_emp").hide(); $("#select_maritalstatus_wrap").show(); $("#radio1").parent().parent().show();
@@ -357,7 +377,7 @@ $(document).on('click',".vp_header a",function(){
 		 $("#lfsubmit").parent().show(); $("#lf_cig, #lf_alc, #lf_rec").hide(); $("#select_smoking_wrap, #select_drink_wrap, #select_drugs_wrap").show(); 
 	}
 	if(cur_form.attr('id') == "medical-info_html"){
-		 $("#md_submit").parent().show(); $("#md_con, #md_sug, #md_alg, #md_fam").hide(); $("#pastmedicalcondition_wrap, #surgeries_wrap, #allergies_wrap, #familyhistory_wrap").show(); 
+		 $("#md_submit").parent().show(); $("#md_con, #md_sug, #md_alg, #md_fam").hide(); $("#pastmedicalcondition_wrap, #surgeries_wrap, #allergies_wrap, #familyhistory_wrap").show(); $("#pcp_wrap").addClass('searchInput');
 	}
 	if(cur_form.attr('id') == "medication-info_html"){
 		 $("#medi_submit").parent().show(); $("#ph_det, #md_sug, #md_alg, #md_fam").hide(); $("#pharmacyaddress_wrap, #select_medication1_wrap, .medi_add_group_row").show(); 
@@ -399,6 +419,7 @@ $(document).on('click',".vp_header a",function(){
 							$("#no_insurance, #ins_gen, #ins_secdep").hide(); $(".primaryInsuranceColumn, .dep_fd, .genterradio").show();
 							if($("#sec_insuranceid").val()){ $(".secInsuranceColumn").show(); $("#sec_areyouinsured").parent().parent().show();}
 							$("#ins_submit").parent().show();
+							$("#primary_companyname_wrap, #sec_companyname_wrap").addClass('searchInput');
 						}
 					},"json");
 			
@@ -691,7 +712,8 @@ $('#form_minsurance_info').submit(function(){
 			return false;
 		}  $('#primary_insuredfname, #primary_insuredlname, #primary_relationship, #primary_insureddob').val('').attr('data-id',0);
 		if(pri_areyouinsured == "D"){
-		$("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn, .addInsurance").hide();
+			$("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn, .addInsurance").hide();
+			$("input[name='sec_areyouinsured']").attr('checked',false);
 		}
 		if(pri_areyouinsured == "N"){
 			$("#firstIns_dependent").hide(); $(".primaryInsuranceColumn .dependent-no, .primaryInsuranceColumn").show();
@@ -1749,7 +1771,7 @@ $('#form_mmedical_info').submit(function(){
 							$("#"+$("#frm_step").attr('data-step')).show();
 							$("#medi_submit").parent().show();
 							$("#medication-info_html, #pharmacyaddress_wrap, .medi_add_group_row , #select_medication1_wrap").show();
-							$("#ph_det").hide();
+							$("#ph_det").hide(); $("#pcp_wrap").addClass('searchInput');
 					}
 				}
 			});
@@ -2035,6 +2057,26 @@ $('#select_medication1')
 		return false;
 	});	
 /* End Medication Form */
+$("#app_submit").click(function(){
+	$(this).parent().hide();
+	if($("#app_submit").attr('data-step') >= 6){
+		$("#pageheader .site-title h4").empty().append('Confirmation');
+		$("#htmlContent").removeClass('view-pro-det');
+		$("#view-profile_html, #insurance-card_html, #general-info_html, #pcp-info_html, #lifestyle-info_html, #medical-info_html, #medication-info_html").hide();
+		$("#medication-info_html, .dotstyle").hide();
+		$("#profile-complete_html").show();
+		$("#signature").jSignature('reset');
+	}else{
+		$('#incomplete_form ul').empty();
+		for(var i=$("#app_submit").attr('data-step');i<=5;i++){ 
+			if(i != 3)
+				$('#incomplete_form ul').append("<li><p>"+$('a[data-step="'+i+'"]').prev().text()+"</p></li>");
+		}
+		$('#incomplete_form').addClass('md-show');
+    	$('.md-overlay').addClass('md-show');
+	}
+	return false;	
+});
 
 /* Confirmation Form */
 
@@ -2257,8 +2299,8 @@ $(document).on('click',"#pageheader .panel-control-left a",function(){
 	$("input[type='submit']").parent().hide();
 	$(".mobilevp, #pgender, #no_insurance, #ins_gen, #ins_secdep, #ins_secgen, #ins_rel, #dem_emp, #dem_mar_sts, #dem_enhn, #dem_race, #rel_pcp, #lf_cig, #lf_alc, #lf_rec, #md_con, #md_sug, #md_alg, #md_fam, #ph_det, #addedMedicationList").show();
 	$("input[name='primary_insuredgender'], input[name='sec_areyouinsured'], input[name='sec_insuredgender'], input[name='select_employed']").parent().parent().hide();
-	$("#select_gender_wrap, #dep_fd, #primary_relationship_wrap, #sec_relationship_wrap, #select_maritalstatus_wrap, #select_ethinicity_wrap, #select_race_wrap, #select_emc_relationship_wrap, #select_smoking_wrap, #select_drink_wrap, #select_drugs_wrap, #pastmedicalcondition_wrap, #surgeries_wrap, #allergies_wrap, #familyhistory_wrap, #pharmacyaddress_wrap, #select_medication1_wrap, #medi_add_group_row").hide();
-	
+	$("#select_gender_wrap, #dep_fd, #primary_relationship_wrap, #sec_relationship_wrap, #select_maritalstatus_wrap, #select_ethinicity_wrap, #select_race_wrap, #select_emc_relationship_wrap, #select_smoking_wrap, #select_drink_wrap, #select_drugs_wrap, #pastmedicalcondition_wrap, #surgeries_wrap, #allergies_wrap, #familyhistory_wrap, #pharmacyaddress_wrap, #select_medication1_wrap, #medi_add_group_row, .medi_add_group_row").hide();
+	$("#primary_companyname_wrap, #sec_companyname_wrap, #pcp_wrap").removeClass('searchInput');
 	$(".vp_header a").each(function(index, element) {
         $(this).parent().parent().parent().parent().show();
     });
@@ -2267,5 +2309,7 @@ $(document).on('click',"#pageheader .panel-control-left a",function(){
 		$(this).removeClass('current');
 		if($(this).attr('data-id') == cur_form.attr('id')) $(this).addClass('current');
 	});*/
-	$(".dotstyle").hide();
+	$(".dotstyle, #profile-complete_html").hide();
 });
+
+              

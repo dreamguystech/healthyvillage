@@ -15,7 +15,7 @@
 	<header id="pageheader">
 	</header>
 	<div class="loginlogoheader logo-header" style="display:none;">
-        <div class="practicelogo logo-img"><img src="img/logo.png" alt="Health First" ></div>
+        <div class="practicelogo logo-img"><img src="img/logo.png" alt="Health First" width="228" height="56"></div>
         <div class="loginlogotext">
             <span class="login">Please Login to Access Your Profile</span>
             <span class="signup" style="display:none;">Set up a password to secure  your profile</span>
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 				</div>
-                <div class="dotstyle dotstyle-smalldotstroke" >
+                <div class="dotstyle dotstyle-smalldotstroke walkthrough-dot">
 					<ul>
 						<li class="current"><a href="javascript:;">Step 1</a></li>
 						<li><a href="javascript:;">Step 2</a></li>
@@ -114,19 +114,33 @@
             <div class="form-group">
                     <input class="form-control" type="text" name="lname" id="lname" placeholder="Lastname">
             </div>
-            <div class="form-group" >
+			<div class="form-group">
+				<div class="row row-sm">
+					<div class="col-xs-6 gender-select"> 
+                           <select class="js-example-basic-single" name="fm_gender" id="fm_gender"> 
+                                   <option value="">Gender</option>
+                                   <option value="Male">Male</option>
+                                   <option value="Female">Female</option>
+                           </select>
+                   </div>
+					<div class="col-xs-6">
+						<input class="form-control" type="text" name="dob" id="dob" placeholder="DOB (MM/DD/YYYY)"><div id="date-error-custom"></div>
+					</div>
+				</div>
+			</div>
+            <!--<div class="form-group" >
                     <input class="form-control" type="text" name="dob" id="dob" placeholder="DOB (MM/DD/YYYY)"><div id="date-error-custom"></div>
-            </div>
+            </div>-->
             <div class="form-group" >
                     <input class="form-control" type="text" name="cphone" id="cphone" placeholder="Phone">
                     <div class="checkbox">
-						<label><input type="checkbox" name="ccphone" id="ccphone" value="Y"> I provide consent</label>
+						<label><input type="checkbox" name="ccphone" id="ccphone" value="Y">Consent</label>
                 </div>
             </div>
             <div class="form-group" >
                     <input class="form-control" type="email" name="cemail" id="cemail" placeholder="Email">
                     <div class="checkbox">
-						<label><input type="checkbox" name="ccemail" id="ccemail" value="Y"> I provide consent</label>
+						<label><input type="checkbox" name="ccemail" id="ccemail" value="Y">Consent</label>
 					</div>
             </div>
             
@@ -188,6 +202,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+    <script type='text/javascript' src='js/select2.js'></script>
     <script src="js/app.js"></script>
 </body>
 </html>

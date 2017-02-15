@@ -1,4 +1,3 @@
-//var base_url = "https://dev.yosicare.com/healthyvillage-app/";
 var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
 $(".user-name").empty().append(window.localStorage.getItem("pat_name"));
 $(".user-number").empty().append(window.localStorage.getItem("pat_phone"));
@@ -12,14 +11,17 @@ if(window.localStorage.getItem("pre_page")){
 	window.localStorage.removeItem("pre_page");
 }
 $(document).ready(function(e) {
+	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
     setTimeout(function(){ $("#loading").hide(); },1000);
+   var height = $(window).height();        
+   var headr_height = $("#pageheader").height();
+   var footr_height = $("#pagefooter").height();
+   var setheight = height - headr_height;
+   var trueheight = setheight - footr_height;
+   $(".main").css("height", trueheight);
 });
 
 $(".media-list li:eq(1)").on('click',function(){ $("#loading").show(); $(".loginlogoheader, #user-profile_html").hide(); $("#pageheader, #myprofile_html").show(); setTimeout(function(){ $("#loading").hide(); },300); });
-
-/*$("#pageheader .panel-control-left a").on('click',function(){ $("#loading").show(); $(".loginlogoheader, #user-profile_html").show(); $("#pageheader, #myprofile_html").hide(); setTimeout(function(){ $("#loading").hide(); },300); return false; });*/
-
-
 
 $('#doctorsearch')
 	.autocomplete(base_url+"mobile-app?page=searchDoctor", acOptions_doctor)

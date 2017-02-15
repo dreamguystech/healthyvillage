@@ -16,23 +16,26 @@
 		<div class="header">
 			<div class="panel-control-left"><a href="#"><img alt="Back" src="img/menu2.png" width="21" height="19"></a></div>
 			<div class="site-title"><h4>Events</h4></div>
-			<div class="panel-control-right"><a href="#"><img alt="Menu" src="img/menu-icon.png" width="4" height="16"></a></div>
+			<div class="panel-control-right dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown"><img alt="Menu" src="img/menu-icon.png" width="4" height="16"></a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</div>
 		</div>
 	</header>
     <main id="pagecontent">
         <div id="htmlContent">
 			<div id="events_html">
-<div class="calendar-bottom">
-	<div class="calendar-year"><div class="calendar-month-year-text">2016</div></div>
-	<span class="navigate"><a id="scrollRight" href="#"><img src="img/front-arrow2.png" alt="" width="6" height="12"></a></span>
-	<ul class="month-list">
-		<li class="month-block">JAN</li><li class="month-block">FEB</li><li class="month-block current">MAR</li><li class="month-block">APR</li><li class="month-block">MAY</li><li class="month-block">JUN</li><li class="month-block">JUL</li><li class="month-block">AUG</li><li class="month-block">SEP</li><li class="month-block">OCT</li><li class="month-block">NOV</li><li class="month-block">DEC</li>
-	</ul>
-  <span class="navigate text-right"> <a id="scrollLeft" href="#"><img src="img/back-arrow2.png" alt="" width="6" height="12"></a></span>
-</div>
-				
+				<div class="calendar-bottom">
+					<div class="calendar-year"><div class="calendar-month-year-text">2016</div></div>
+					<a id="scrollRight" href="#" class="navigate month-left"></a>
+					<ul class="month-list">
+						<li class="month-block">JAN</li><li class="month-block">FEB</li><li class="month-block current">MAR</li><li class="month-block">APR</li><li class="month-block">MAY</li><li class="month-block">JUN</li><li class="month-block">JUL</li><li class="month-block">AUG</li><li class="month-block">SEP</li><li class="month-block">OCT</li><li class="month-block">NOV</li><li class="month-block">DEC</li>
+					</ul>
+					<a id="scrollLeft" class="navigate text-right month-right" href="#"></a>
+				</div>
 				<div class="cal-year">
-					<div id="backyear" class="cal-left"><img src="img/back-arrow.png" alt="" width="6" height="12"></div>
+					<a href="#" id="backyear" class="cal-left"></a>
 					<ul class="year-list">
 						<li class="">2014</li>
 						<li class="">2015</li>
@@ -44,13 +47,11 @@
 						<li class="">2021</li>
 						<li class="">2022</li>
 					</ul>
-					<div id="frontyear" class="cal-right"><img src="img/front-arrow.png" alt="" width="6" height="12"></div>
+					<a href="#" id="frontyear" class="cal-right"></a>
 				</div>
 				<ul class="media-list media-list-linked event-list">
-                					
 				</ul>
 			</div>
-            
             <div id="confirmation_html" style="visibility:hidden;">
  <div class="profile-tab2">
 	

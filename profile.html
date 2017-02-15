@@ -16,10 +16,13 @@
 		<div class="header">
 			<div class="panel-control-left"><a href="#"><img alt="Back" src="img/left_arrow.png" width="10" height="16"></a></div>
 			<div class="site-title"><h4>View Profile</h4></div>
-			<div class="panel-control-right"><a href="#"><img alt="Menu" src="img/menu-icon.png" width="4" height="16"></a></div>
+			<div class="panel-control-right dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown"><img alt="Menu" src="img/menu-icon.png" width="4" height="16"></a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</div>
 		</div>
 	</header>
-	
 	<main id="pagecontent">
         <div id="htmlContent" class="view-pro-det">
             	<div class="dotstyle dotstyle-smalldotstroke" style="display:none;">
@@ -39,7 +42,7 @@
                     <ul class="vp_content profile">
                         <li class="vp_header">
                             <h2>About me</h2>
-                            <a data-incomplete="" data-step="1" data-id="26762" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
+                            <a data-incomplete="" data-step="2" data-id="26762" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
                         </li>
                     </ul>
                 </div>
@@ -288,15 +291,7 @@
 								<div class="customddWrap" id="primary_relationship_wrap" style="display:none;">
 									<select id="primary_relationship" name="primary_relationship" class="yc-input customdd form-control" data-id="0">
 										<option value="">Relationship to Insured</option>
-										<option value="1" data-class="">Spouse</option>
-										<option value="2" data-class="">Son</option>
-										<option value="3" data-class="">Daughter</option>
-										<option value="4" data-class="">Father</option>
-										<option value="5" data-class="">Mother</option>
-										<option value="6" data-class="">Sister</option>
-										<option value="7" data-class="">Brother</option>
-										<option value="14" data-class="">Friend</option>
-										<option value="15" data-class="">Relative</option>
+										
 									</select>
 									<div class="selected_icon "></div>
 								</div>
@@ -305,7 +300,7 @@
 						<div class="login-from dependent-no">
 							<div class="form-group">
 								<label for="primary_companyname">Insurance Company</label>
-								<div class="input searchInput" id="primary_companyname_wrap" style="position:relative;">
+								<div class="input" id="primary_companyname_wrap" style="position:relative;">
 									<input id="primary_companyname" class="yc-input form-control acInput" name="primary_companyname" value="" placeholder="Start typing to search" autocomplete="off" type="text" readonly>
 									<input name="primary_company_id" id="primary_company_hid" value="" type="hidden">
 									<input name="primary_company_name" id="primary_company_hname" value="" type="hidden">
@@ -373,15 +368,7 @@
 								<div class="customddWrap" id="sec_relationship_wrap" style="display:none;">
 									<select id="sec_relationship" name="sec_relationship" class="yc-input customdd form-control">
 										<option value="">Relationship to Insured</option>
-										<option value="1" data-class="">Spouse</option>
-										<option value="2" data-class="">Son</option>
-										<option value="3" data-class="">Daughter</option>
-										<option value="4" data-class="">Father</option>
-										<option value="5" data-class="">Mother</option>
-										<option value="6" data-class="">Sister</option>
-										<option value="7" data-class="">Brother</option>
-										<option value="14" data-class="">Friend</option>
-										<option value="15" data-class="">Relative</option>
+										
 									</select>
 									<div class="selected_icon "></div>
 								</div>
@@ -390,7 +377,7 @@
 						<div class="login-from dependent-no">
 							<div class="form-group">
 								<label for="primary_companyname">Insurance Company</label>
-								<div class="input searchInput" id="primary_companyname_wrap" style="position:relative;">
+								<div class="input" id="sec_companyname_wrap" style="position:relative;">
 									<input id="sec_companyname" class="yc-input form-control acInput" name="sec_companyname" value="" placeholder="Start typing to search" autocomplete="off" type="text" readonly>
 									<input name="sec_company_id" id="sec_company_id" value="" type="hidden">
 									<input name="sec_company_name" id="sec_company_name" value="" type="hidden">
@@ -484,7 +471,7 @@
                  <ul class="vp_content">
                     <li class="vp_header">
                         <h2>PCP Info</h2>
-                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
+                        <a data-incomplete="" data-step="5" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
                     </li>
                 </ul>
                 </div>
@@ -494,7 +481,7 @@
 						<div style="color:red;text-align:center"> </div>
 						<div class="form-group">
 							<label class="inner-title">Primary Care Physician</label>
-							<div class="searchInput login-from" id="pcp_wrap" style="display:block;">
+							<div class="login-from" id="pcp_wrap" style="display:block;">
 								<span class="dr_prefix">Dr. </span>
 								<input id="pcp" class="form-control acInput" name="pcp" value="" placeholder="Search primary doctor by typing" autocomplete="off" type="text">
 								<input name="pcp_id" id="pcp_hid" value="" type="hidden"><input name="pcp_name" id="pcp_hname" value="" type="hidden"><input name="pcp_phone" id="pcp_hphone" value="" type="hidden">
@@ -539,14 +526,13 @@
                  <ul class="vp_content">
                     <li class="vp_header">
                         <h2>Lifestyle</h2>
-                        <a data-incomplete="" data-step="4" data-id="26766" class="editlifestyle" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
+                        <a data-incomplete="" data-step="6" data-id="26766" class="editlifestyle" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
                     </li>
                 </ul>
                 </div>
 				<form name="lifestyle" id="lifestyle" method="post" data-track="Lifestyle" autocomplete="off">
 					<div class="login-from dependent-yes">
-						<div class="form-group"><label>Cigarettes(per day)</label><input class="form-control" id="lf_cig" value="" type="text" readonly></div>
-						<div class="form-group">
+						<div class="form-group"><label>Cigarettes(per day)</label><input class="form-control" id="lf_cig" value="" type="text" readonly>
 							<div class="customddWrap" id="select_smoking_wrap" style="display:none;">
 								<select id="select_smoking" name="select_smoking" class="yc-input customdd">
 									<option value="">Select</option>
@@ -584,7 +570,7 @@
                  <ul class="vp_content">
                     <li class="vp_header">
                         <h2>My Health</h2>
-                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
+                        <a data-incomplete="" data-step="7" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
                     </li>
                 </ul>
                 </div>
@@ -652,7 +638,7 @@
                  <ul class="vp_content">
                     <li class="vp_header">
                         <h2>Medication</h2>
-                        <a data-incomplete="" data-step="4" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
+                        <a data-incomplete="" data-step="8" data-id="26766" class="editpageinfo" href="javascript:;"><img alt="" src="img/edit-icon2.png" width="15" height="15"></a>
                     </li>
                 </ul>
                 </div>
@@ -674,10 +660,9 @@
 						<div class="form-group">
                         	<label class="inner-title">Zip Code</label>
 							<input id="pharmacyzipcode" class="form-control" name="pharmacyzipcode" value="" placeholder="Zip Code" type="tel">
+                            <input id="pharmacyphoneno" class="form-control" name="pharmacyphoneno" value="" type="hidden">
 						</div>
-						<div class="form-group">
-							<input id="pharmacyphoneno" class="form-control" name="pharmacyphoneno" value="" type="hidden">
-						</div>
+						
 						<div class="form-group">
 							<label class="inner-title">Medication</label>
 							<div class="input searchInput" id="select_medication1_wrap" style="position:relative;display:none;">
@@ -727,7 +712,7 @@
                 <div class="form-group">
                     <label>How did you hear about us</label>
                     <div class="input customddWrap" id="refsource_wrap">
-                        <select id="refsource" name="refsource" class="yc-input customdd">
+                        <select id="refsource" name="refsource" class="yc-input customdd form-control">
                             <option value="">Please Select</option>
                             
                         </select>
@@ -830,6 +815,23 @@
 					</div>
 				</div>
 		</div>
+        <div class="login-from" style="display:none;">
+             <input type="submit" id="app_submit" name="app_submit" value="Next" class="yc-button primary large" data-step="">
+        </div>
+        <div class="md-modal md-effect-1" id="incomplete_form">
+        <div class="md-content">
+            <div class="success_body">
+                <div class="success_content">
+                    <h4>Fill the following forms to confirm appointment</h4>
+                    <ul>
+                    </ul>
+                </div>
+                <div class="success_container">
+                    <h4> <a href="javascript:void(0);" class="btn btn-cancel" id="form_edit">Close</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     
     <footer id="pagefooter"> </footer>
