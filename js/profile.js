@@ -43,13 +43,13 @@ $(document).ready(function(e) {
 				if(dep == "N") $("#firstIns_dependent").hide();
 				if(dep == "D") $("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn").hide();
 				$("input[name=primary_areyouinsured][value=" + dep + "]").prop('checked', true);
-				$("#primary_insuredfname").val(data.data.InsuranceData[0].InsuredFirstName);
-				$("#primary_insuredlname").val(data.data.InsuranceData[0].InsuredLastName);
-				$("#primary_insureddob").val(data.data.InsuranceData[0].Dob);
+				$("#primary_insuredfname").val(data.data.InsuranceData[0].InsuredFirstName).attr('data-id',1);
+				$("#primary_insuredlname").val(data.data.InsuranceData[0].InsuredLastName).attr('data-id',1);
+				$("#primary_insureddob").val(data.data.InsuranceData[0].Dob).attr('data-id',1);
 				$("#ins_gen").val(data.data.InsuranceData[0].InsuredGender);
-				$("input[name=primary_insuredgender][value=" + data.data.PersonalData.InsuredGender + "]").prop('checked', true);
-				$("#primary_insuranceid").val(data.data.InsuranceData[0].Id);
-				$("#primary_policynumber").val(data.data.InsuranceData[0].MemberId); $(".addInsurance").hide();
+				$("input[name=primary_insuredgender][value=" + data.data.InsuranceData[0].InsuredGender + "]").prop('checked', true).attr('data-id',1);
+				$("#primary_insuranceid").val(data.data.InsuranceData[0].Id).attr('data-id',1);
+				$("#primary_policynumber").val(data.data.InsuranceData[0].MemberId).attr('data-id',1); $(".addInsurance").hide();
 				if(data.data.InsuranceData[1]){
 					var dep='D';
 					if(data.data.InsuranceData[1].InsuranceHolderType == "secondary") dep='N';
@@ -664,14 +664,14 @@ var pri_insurad = $('input[name="primary_areyouinsured"]'), pri_insuredfname = $
 	pri_insuredlname.on('blur keyup',validatePlname);
 	pri_insureddob.on('blur keyup',validatePdob);
 	pri_insuredgender.on('blur keyup',validatePgender);
-	pri_relationship.on('blur keyup form-control',validatePrel);
+	pri_relationship.on('blur keyup change',validatePrel);
 	pri_policynumber.on('blur keyup',validatePpolicy);
 	sec_areyouinsured.on('blur keyup',validateSinsured);
 	sec_insuredfname.on('blur keyup',validateSfname);
 	sec_insuredlname.on('blur keyup',validateSlname);
 	sec_insureddob.on('blur keyup',validateSdob);
 	sec_insuredgender.on('blur keyup',validateSgender);
-	sec_relationship.on('blur keyup form-control',validateSrel);
+	sec_relationship.on('blur keyup change',validateSrel);
 	sec_policynumber.on('blur keyup',validateSpolicy);
 $('#form_minsurance_info').submit(function(){ 
 		if(validatePinsured() & validatePfname() & validatePlname()& validatePdob()& validatePgender()& validatePrel() & validatePpolicy() & validateSinsured()& validateSfname()& validateSlname()& validateSdob()& validateSgender()& validateSrel()& validateSpolicy())
@@ -710,8 +710,9 @@ $('#form_minsurance_info').submit(function(){
 		{   $('input[name="primary_areyouinsured"]').attr('data-id',0);
 			$('input[name="primary_areyouinsured"]').next().css("border","1px solid #a94442");				
 			return false;
-		}  $('#primary_insuredfname, #primary_insuredlname, #primary_relationship, #primary_insureddob').val('').attr('data-id',0);
+		}  
 		if(pri_areyouinsured == "D"){
+			$('#primary_insuredfname, #primary_insuredlname, #primary_relationship, #primary_insureddob').val('').attr('data-id',0);
 			$("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn, .addInsurance").hide();
 			$("input[name='sec_areyouinsured']").attr('checked',false);
 		}
@@ -802,11 +803,11 @@ $('#form_minsurance_info').submit(function(){
 		if(pri_areyouinsured == "Y" || pri_areyouinsured == "N"){
 			$("#form_minsurance_info input, #form_minsurance_info select").each(function(index, element) {
 				if($(this).attr('data-id')){ 
-				 if($(this).attr('data-id')==0){ 
+				 if($(this).attr('data-id')==0){ //$("#no_insurance").append($(this).attr('id'));
 				  chk_secins =0; }
 				} 
 			});
-		} if(pri_areyouinsured == "D") chk_secins =0;
+		} if(pri_areyouinsured == "D") chk_secins =0; 
 			if(chk_secins == 1) $(".addInsurance").show(); else $(".addInsurance").hide();
 		
 	}

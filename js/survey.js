@@ -28,61 +28,6 @@ $(document).ready(function(e) {
 	
 });
 
-var step = 100;
-var scrolling = false;
-
-$("#scrollRight").bind("click", function(event) {
-    event.preventDefault();
-    $(".month-list").animate({
-        scrollLeft: "-=" + step + "px"
-    });
-});
-$("#scrollLeft").bind("click", function(event) {
-    event.preventDefault();
-    $(".month-list").animate({
-        scrollLeft: "+=" + step + "px"
-    });
-});
-function scrollContent(direction) {
-    var amount = (direction === "right" ? "-=1px" : "+=1px");
-    $(".month-list").animate({
-        scrollLeft: amount
-    }, 1, function() {
-        if (scrolling) {
-            scrollContent(direction);
-        }
-    });
-}
-
-var step = 100;
-var scrolling = false;
-
-$("#backyear").bind("click", function(event) {
-    event.preventDefault();
-    $(".year-list").animate({
-        scrollLeft: "-=" + step + "px"
-    });
-});
-
-$("#frontyear").bind("click", function(event) {
-    event.preventDefault();
-    $(".year-list").animate({
-        scrollLeft: "+=" + step + "px"
-    });
-});
-function scrollContent(direction) {
-    var amount = (direction === "right" ? "-=1px" : "+=1px");
-    $(".year-list").animate({
-        scrollLeft: amount
-    }, 1, function() {
-        if (scrolling) {
-            scrollContent(direction);
-        }
-    });
-}
-
-
-
 
 $(document).on('click', '.event-list .select_event', function(e) { 
 			var action = 'eventselect';
@@ -95,20 +40,7 @@ $(document).on('click', '.event-list .select_event', function(e) {
             $("#confirmation_html").show();
 		});
 		
-/*var curPos = 0;
-$('body').on('click', '.selected_answer', function(){
-	//alert($(this).closest('li').attr('id'));
 
-var all_question_count = $("[type='radio']:checked").length;
-if(all_question_count >5){
-////var bottom2 = $(window).height() - bottom;
-//if(bottom2 < 80) 
-//{ 
-	curPos = curPos + 80;		
-	$('html , body').animate({scrollTop:curPos},1000 );	
-	if(all_question_count == $('#total_question_count').val()) $("#submit_button").show();	
-}
-});*/
 
 var curPos = 0;
 $('body').on('click', '.selected_answer', function(){
@@ -118,7 +50,7 @@ $('body').on('click', '.selected_answer', function(){
 	var bottom2 = $(window).height() - bottom;
 	if(bottom2 < 80) 
 	{ 
-	curPos = curPos + 250;	
+	curPos = curPos + 270;	
 	$('html , body').animate({scrollTop:curPos},3500 );	
 	}
 	if($("[type='radio']:checked").length == $('#total_question_count').val()) $("#submit_button").show();	

@@ -23,6 +23,8 @@ $(document).ready(function(e) {
 	window.localStorage.removeItem("pat_dob");
 	window.localStorage.removeItem("pat_reftok");
 	window.localStorage.removeItem("pat_acctok");
+	window.localStorage.removeItem("pre_page");
+	window.localStorage.removeItem("prac_id");
 	if(window.localStorage.getItem("hf_app")){ $(".loginlogotext .login").empty().append('Sign Up Now'); $("#emailcheck_html, #privacy_html").hide(); $("#consent, .loginlogoheader").show();}
 	if(!window.localStorage.getItem("hf_app")) window.localStorage.setItem("hf_app",1)
     setTimeout(function(){ $("#loading").hide(); $("#privacy_html").css('display','none');},2000);
