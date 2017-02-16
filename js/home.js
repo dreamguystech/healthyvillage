@@ -10,10 +10,10 @@ if(window.localStorage.getItem("pre_page")){
 	$("#"+window.localStorage.getItem("pre_page")).show();
 	window.localStorage.removeItem("pre_page");
 }
-$(document).ready(function(e) { 
+$(document).ready(function(e) {
 	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
     setTimeout(function(){ $("#loading").hide(); },1000);
-   var height = window.screen.height;        
+   var height = $(window).height();        
    var headr_height = $("#pageheader").height();
    var footr_height = $("#pagefooter").height();
    var setheight = height - headr_height;
@@ -22,7 +22,7 @@ $(document).ready(function(e) {
 });
 
 $(".media-list li:eq(1)").on('click',function(){ $("#loading").show();
-var height = window.screen.height;        
+var height = $(window).height();        
    var headr_height = $("#pageheader").height();
    var footr_height = $("#pagefooter").height();
    var setheight = height - headr_height;
