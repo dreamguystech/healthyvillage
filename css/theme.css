@@ -959,7 +959,7 @@ body.profile-signup .form-container{margin:20px 2% 20px 2%;}
 @media only screen and (max-device-height:600px){#pagecontent .walkthrough-btn input[type="submit"]{margin:35px auto;}
 .walkthrough-item{padding:0;}
 }
-@media only screen and (max-device-height:535px){.walkthrough-img{height:120px;margin:30px auto;width:120px;}
+@media only screen and (max-device-height:535px){.walkthrough-img{height:120px;margin:20px auto;width:120px;}
 .walkthrough-img > img{height:auto;width:100%;}
 #pagecontent .walkthrough-btn input[type="submit"]{margin:35px auto;}
 .walkthrough-item{padding:0;}
