@@ -10,7 +10,7 @@ if(window.localStorage.getItem("pre_page")){
 	$("#"+window.localStorage.getItem("pre_page")).show();
 	window.localStorage.removeItem("pre_page");
 }
-$(document).ready(function(e) {
+$(document).ready(function(e) { 
 	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
     setTimeout(function(){ $("#loading").hide(); },1000);
    var height = window.screen.height;        
