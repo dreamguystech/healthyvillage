@@ -43,11 +43,13 @@ $(document).ready(function(e) {
 				if(dep == "N") $("#firstIns_dependent").hide();
 				if(dep == "D") $("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn").hide();
 				$("input[name=primary_areyouinsured][value=" + dep + "]").prop('checked', true);
+				if($("input[name=primary_areyouinsured]:checked"))$("input[name=primary_areyouinsured]").attr('data-id',1);
 				$("#primary_insuredfname").val(data.data.InsuranceData[0].InsuredFirstName).attr('data-id',1);
 				$("#primary_insuredlname").val(data.data.InsuranceData[0].InsuredLastName).attr('data-id',1);
 				$("#primary_insureddob").val(data.data.InsuranceData[0].Dob).attr('data-id',1);
 				$("#ins_gen").val(data.data.InsuranceData[0].InsuredGender);
-				$("input[name=primary_insuredgender][value=" + data.data.InsuranceData[0].InsuredGender + "]").prop('checked', true).attr('data-id',1);
+				$("input[name=primary_insuredgender][value=" + data.data.InsuranceData[0].InsuredGender + "]").prop('checked', true);
+				if($("input[name=primary_insuredgender]:checked"))$("input[name=primary_insuredgender]").attr('data-id',1);
 				$("#primary_insuranceid").val(data.data.InsuranceData[0].Id).attr('data-id',1);
 				$("#primary_policynumber").val(data.data.InsuranceData[0].MemberId).attr('data-id',1); $(".addInsurance").hide();
 				if(data.data.InsuranceData[1]){
@@ -189,7 +191,7 @@ $(document).ready(function(e) {
 					pasthist.push(data.data.MedicationsData[i]['Name']);
 					$("#addedMedicationList").append('<li id="addedMedi_'+data.data.MedicationsData[i]['RefId']+'"><p><span>'+data.data.MedicationsData[i]['Name']+", "+data.data.MedicationsData[i]['Dosage']+", "+$("#select_medication_freq1 option[value="+data.data.MedicationsData[i]['Frequency']+"]").text()+'</span></p><a href="javascript:;" class="removelist" data-id="'+data.data.MedicationsData[i]['RefId']+'"></a></li>');
 					medicationArr.push({
-                    "Id": data.data.MedicationsData[i]['Id'],
+                    "Id": data.data.MedicationsData[i]['RefId'],
 					"Name": data.data.MedicationsData[i]['Name'],
                     "Dosage": data.data.MedicationsData[i]['Dosage'],
                     "Frequency": data.data.MedicationsData[i]['Frequency']

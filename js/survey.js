@@ -3,7 +3,7 @@ $(".user-name").empty().append(window.localStorage.getItem("pat_name"));
 $(".user-number").empty().append(window.localStorage.getItem("pat_phone"));
 $(".user-dob").empty().append(window.localStorage.getItem("pat_dob"));
 $(document).ready(function(e) {
-	
+	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
 	$.post(base_url+"mobile-app?page=getQuestions",{pat_id:window.localStorage.getItem("pat_id"),pat_acctok:window.localStorage.getItem("pat_acctok"),pat_reftok:window.localStorage.getItem("pat_reftok")},
 	function(data){ $("#loading").hide();
 		if(data.success == "Y"){
@@ -14,7 +14,7 @@ $(document).ready(function(e) {
 					question += '<li id="list_'+value['id']+'" class="list-group-item"><div class="row"><label class="col-md-12 control-label">'+value['question']+'</label><div class="col-sm-12"><div class="row">';
 				for(var j=0;j<value['def_answers'].length;j++){ var chk='';
 					if(value['answerId'] == value['def_answers'][j]['id']) chk='checked';
-					question += '<div class="col-sm-4"><div class=" radiooption"><input name="optradio_'+value['id']+'" class="selected_answer" id="question_'+value['id']+'" value="'+value['def_answers'][j]['id']+'"  type="radio" '+chk+'><label for="optradio_'+value['id']+'">'+value['def_answers'][j]['name']+'</label></div></div>';
+					question += '<div class="col-sm-4"><div class="radio radio-primary"><input name="optradio_'+value['id']+'" class="selected_answer" id="question_'+value['def_answers'][j]['id']+'" value="'+value['def_answers'][j]['id']+'"  type="radio" '+chk+'><label for="question_'+value['def_answers'][j]['id']+'">'+value['def_answers'][j]['name']+'</label></div></div>';
 				}
 				question += '</div></div></div></li>';
 				qcnt++;
