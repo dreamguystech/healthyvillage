@@ -18,7 +18,7 @@ $(document).ready(function(e) {
    var footr_height = $("#pagefooter").height();
    var setheight = height - headr_height;
    var trueheight = setheight - footr_height;
-   $(".main").css("height", trueheight);
+   $(".main").css("height", window.screen.height);
 });
 
 $(".media-list li:eq(1)").on('click',function(){ $("#loading").show();
@@ -27,7 +27,7 @@ var height = window.screen.height;
    var footr_height = $("#pagefooter").height();
    var setheight = height - headr_height;
    var trueheight = setheight - footr_height;
-   $(".main").css("height", trueheight);
+   $(".main").css("height", window.screen.height);
  $(".loginlogoheader, #user-profile_html").hide(); $("#pageheader, #myprofile_html").show(); setTimeout(function(){ $("#loading").hide(); },300); });
 
 $('#doctorsearch')
