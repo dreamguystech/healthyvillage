@@ -1,7 +1,7 @@
 var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
 $("#pagecontent").hide();
 $(document).ready(function(e) {
-	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
+	//if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
 	maritalList();
 	if(window.localStorage.getItem("prac_id")){ demographicList(); $("#app_submit").parent().show();}
 	relationsList(); getLifestyle(); frequencylist();relationshipList();
@@ -79,14 +79,14 @@ $(document).ready(function(e) {
 				$("#no_insurance").show();
 				$("#ins_dep").val('i dont have insurance');
 			}
-			// Demographics //
+			// Demographics // 
 			$("#dem_emp").val(data.data.GeneralData.Employed);
 			$("#ssn").val(data.data.GeneralData.Ssn);
 			$("#mobilenumber").val(data.data.GeneralData.MobileNumber);
 			$("#employed_company").val(data.data.GeneralData.CompanyName);
 			if(data.data.GeneralData.MaritalStatus.length > 0)
 			$('#select_maritalstatus option[value='+data.data.GeneralData.MaritalStatus+']').attr('selected','selected');
-			$("#dem_mar_sts").val($('#select_maritalstatus option:selected').text());
+			$("#dem_mar_sts").val($('#select_maritalstatus option[value="'+data.data.GeneralData.MaritalStatus+'"]').text());
 			if(data.data.GeneralData.Employed.length > 0)
 			$("input[name=select_employed][value=" + data.data.GeneralData.Employed + "]").prop('checked', true);
 			$("#dem_enhn").val(data.data.GeneralData.EthnicityName);
@@ -94,7 +94,7 @@ $(document).ready(function(e) {
 			$("#select_ethinicity_wrap").val(data.data.GeneralData.EthnicityId);
 			$("#select_race_wrap").val(data.data.GeneralData.RaceId);
 			if(!window.localStorage.getItem("prac_id")) $("#dem_enhn").parent().hide();
-			
+			$("#select_maritalstatus").trigger('change');
 			//Pcp //
 			$("#emc_firstname").val(data.data.PcpandEmergencyData.EmerFirstName);
 			$("#emc_lastname").val(data.data.PcpandEmergencyData.EmerLastName);
@@ -103,9 +103,9 @@ $(document).ready(function(e) {
 			$("#pcp").val(data.data.PcpandEmergencyData.PcpName);
 			$("#pcpcontactnumber").val(data.data.PcpandEmergencyData.PcpPhone);
 			if(data.data.PcpandEmergencyData.EmerRelationshipId.length > 0)
-			$('#select_emc_relationship option[value='+data.data.PcpandEmergencyData.EmerRelationshipId+']').attr('selected','selected');
+			$('#select_emc_relationship option[value="'+data.data.PcpandEmergencyData.EmerRelationshipId+'"]').attr('selected','selected');
 			$("#rel_pcp").val($('#select_emc_relationship option:selected').text());
-			
+			$("#select_emc_relationship").trigger('change');
 			//lifestyle //
 			$("#lf_cig").val(data.data.LifestyleData[0]['TobaccoName']);
 			$("#lf_alc").val(data.data.LifestyleData[0]['AlcoholName']);
@@ -348,7 +348,7 @@ $(document).on('click',".vp_header a, .btn-cancel",function(){
 		var cur_form = $('a[data-step="'+$("#app_submit").attr('data-step')+'"]').parent().parent().parent().parent(); cur_form.show();
 	}else{
 		if(window.localStorage.getItem("pre_page") !='' && $("#app_submit").attr('data-step') <= 5){
-			if(window.localStorage.getItem("prac_id") !=''){
+			if(window.localStorage.getItem("prac_id")){
 				$('#incomplete_form ul').empty();
 				for(var i=$("#app_submit").attr('data-step');i<=5;i++){ 
 						if(i != 3)
@@ -361,6 +361,7 @@ $(document).on('click',".vp_header a, .btn-cancel",function(){
 			}
 		}
 		var cur_form = $(this).parent().parent().parent().parent(); cur_form.show();
+		$('html, body').animate({ scrollTop: 0 }, 600);
 	}
 	$(".dotstyle li").each(function(index, element) {
 			$(this).removeClass('current');
@@ -376,10 +377,11 @@ $(document).on('click',".vp_header a, .btn-cancel",function(){
 		$("#pgender").hide(); $("#select_gender_wrap").show(); $("#submitpinfo").parent().show();
 	} 
 	if(cur_form.attr('id') == "insurance-card_html"){
-		$("#no_insurance, #ins_secdep, #ins_gen, #ins_secgen, #ins_rel").hide(); $(".dep_fd, .genterradio, .sec_insuredgender, #primary_relationship_wrap").show(); $("#ins_submit").parent().show(); $("#ins_secdep").next('div').show(); $("#primary_companyname_wrap, #sec_companyname_wrap").addClass('searchInput');
+		$("#no_insurance, #ins_secdep, #ins_gen, #ins_secgen, #ins_rel").hide(); $(".dep_fd, .genterradio, .sec_insuredgender, #primary_relationship_wrap, .primaryInsuranceColumn").show(); $("#ins_submit").parent().show(); $("#ins_secdep").next('div').show(); $("#primary_companyname_wrap, #sec_companyname_wrap").addClass('searchInput');
 	}
 	if(cur_form.attr('id') == "general-info_html"){
 		 $("#gi_submit").parent().show(); $("#dem_mar_sts, #dem_emp").hide(); $("#select_maritalstatus_wrap").show(); $("#radio1").parent().parent().show();
+		 if($("input[name='select_employed']:checked").val() == "Y") $("#empcmpy").show();
 	}
 	if(cur_form.attr('id') == "pcp-info_html"){
 		 $("#pcpsubmit").parent().show(); $("#relpcp").hide(); $("#select_emc_relationship_wrap").show(); 
@@ -694,7 +696,8 @@ $('#form_minsurance_info').submit(function(){
 				dataType:"json",
 				success:function(data){ 
 					$("#loading").hide(); 
-					if(data.success == "Y"){
+					//if(data.success == "Y")
+					{
 						$("#frm_step").attr('data-step',$("#insurance-card_html").next('div').attr('id'));
 						$(".dotstyle li").each(function(index, element) {
                                 $(this).removeClass('current');
@@ -725,7 +728,7 @@ $('#form_minsurance_info').submit(function(){
 		if(pri_areyouinsured == "D"){
 			$('#primary_insuredfname, #primary_insuredlname, #primary_relationship, #primary_insureddob').val('').attr('data-id',0);
 			$("#firstIns_dependent, .primaryInsuranceColumn .dependent-no, .secInsuranceColumn, .addInsurance").hide();
-			$("input[name='sec_areyouinsured']").attr('checked',false);
+			//$("input[name='sec_areyouinsured']").attr('checked',false);
 		}
 		if(pri_areyouinsured == "N"){
 			$("#firstIns_dependent").hide(); $(".primaryInsuranceColumn .dependent-no, .primaryInsuranceColumn").show();
@@ -799,7 +802,7 @@ $('#form_minsurance_info').submit(function(){
 		} $(this).attr('data-id',1); secins();
 		$("#primary_relationship").parent().removeClass('has-error'); return true;	
 	}
-	function validatePpolicy(){
+	function validatePpolicy(){ if($('input[name="primary_areyouinsured"]:checked').val() == "D") return true;
 		var primary_policynumber  = $('#primary_policynumber').val();
 		if(primary_policynumber == '')
 			{	$(this).attr('data-id',0);secins();
@@ -818,7 +821,7 @@ $('#form_minsurance_info').submit(function(){
 				  chk_secins =0; }
 				} 
 			});
-		} if(pri_areyouinsured == "D") chk_secins =0; 
+		} if(pri_areyouinsured == "D" || typeof pri_areyouinsured === "undefined") chk_secins =0; 
 			if(chk_secins == 1) $(".addInsurance").show(); else $(".addInsurance").hide();
 		
 	}
@@ -899,6 +902,11 @@ $('#form_minsurance_info').submit(function(){
 	}
 	function validateSpolicy(){
 		var sec_policynumber  = $('#sec_policynumber').val();
+		var sec_areyouinsured  = $('input[name="sec_areyouinsured"]:checked').val();
+		if(sec_areyouinsured == "D")
+		{
+			return true;
+		}
 		if(sec_policynumber == '')
 			{
 				$('#sec_policynumber').parent().addClass("has-error");				
@@ -910,7 +918,7 @@ $('#form_minsurance_info').submit(function(){
 
 /* General form */	
 
-$(document).on('click','#radio1',function(){
+$(document).on('click','input[name="select_employed"]',function(){
 	$("#empcmpy").hide();
 	if($('input[name="select_employed"]:checked').val() == "Y") $("#empcmpy").show();
 	

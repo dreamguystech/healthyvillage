@@ -271,12 +271,15 @@ $(document).ready(function(e) {
 	var minYear = 1875;
 	var maxYear = new Date().getFullYear();
 	function isDate(element) {
+	if (element.val().length == 2 || element.val().length == 5){
+		element.val(element.val() + "/");
+	}
     var dtStr = element.val();
     
     var daysInMonth = DaysArray(12)
     var pos1 = dtStr.indexOf(dtCh)
     var pos2 = dtStr.indexOf(dtCh, pos1 + 1)
-     
+	
     var strMonth = dtStr.substring(0, pos1)
     var strDay = dtStr.substring(pos1 + 1, pos2)
     var strYear = dtStr.substring(pos2 + 1)
