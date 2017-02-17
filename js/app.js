@@ -229,14 +229,17 @@ $(document).ready(function(e) {
 					$('#dob').val($('#dob').val() + "/");
 				}
 		}else{ var get_date = $('#dob').val();
-			var chk_slh = $('#dob').val().substr(0,$('#dob').val().length - 1);
-			$("#cconf").val(chk_slh.substr(chk_slh.length - 1));
-			if($('#dob').val().length < 7){  //alert($('#dob').val().length);
-				if($('#dob').val().length == 4 || $('#dob').val().length == 3){
+			//var chk_slh = $('#dob').val().substr(0,$('#dob').val().length - 1);
+			//$("#cconf").val(chk_slh.substr(chk_slh.length - 1));
+			if($('#dob').val().length < 7){  $("#cconf").val($('#dob').val().length);
+				if($('#dob').val().length == 4 || $('#dob').val().length == 2 || $('#dob').val().length == 3 ){//alert($('#dob').val().substr(0,$('#dob').val().length - 1));
+				//$("#cconf").val($('#dob').val().length);
 					$("#dob").val($('#dob').val().substr(0,$('#dob').val().length - 1));
+					
 				}
-				else
+				else{
 				$("#dob").val(get_date.slice(0,-1));
+				}
 			
 			}
 		}
