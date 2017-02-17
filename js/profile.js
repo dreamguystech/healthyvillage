@@ -200,6 +200,15 @@ $(document).ready(function(e) {
 				
 			}
 			
+			if(data.data.PharmacyData){
+				$("#ph_det, #pharmacy_hname").val(data.data.PharmacyData.PharmacyName);
+				$("#pharmacyzipcode").val(data.data.PharmacyData.PharmacyZip);
+				$("#pharmacy_hid").val(data.data.PharmacyData.PharmacyId);
+				if(data.data.PharmacyData.PharmacyId.length > 0)
+				$('#select_pharmacyaddress').append("<option value='"+data.data.PharmacyData.PharmacyId+"' data-address='"+data.data.PharmacyData.PharmacyAddress+"' selected>"+data.data.PharmacyData.PharmacyName+"</option>");
+				$("#select_pharmacyaddress").trigger('change');
+			}
+			
             var medicationJsonString = JSON.stringify(medicationArr);
             $('#medicationJsonData').val(medicationJsonString);
 			if(window.localStorage.getItem("prac_id")) 
