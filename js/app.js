@@ -216,12 +216,29 @@ $(document).ready(function(e) {
 		$("#lname").parent().removeClass('has-error'); return true;	
 	}
 	
-	function validateDob(){
+	function validateDob(e){ //alert(e.keyCode);
 		var dob  = $('#dob').val();
 		if(dob == '')
 		{
 			$('#dob').parent().addClass("has-error");				
 			return false;
+		}
+		if (e.keyCode != 8)
+		{
+				if ($('#dob').val().length == 2 || $('#dob').val().length == 5){
+					$('#dob').val($('#dob').val() + "/");
+				}
+		}else{ var get_date = $('#dob').val();
+			var chk_slh = $('#dob').val().substr(0,$('#dob').val().length - 1);
+			$("#cconf").val(chk_slh.substr(chk_slh.length - 1));
+			if($('#dob').val().length < 7){  //alert($('#dob').val().length);
+				if($('#dob').val().length == 4 || $('#dob').val().length == 3){
+					$("#dob").val($('#dob').val().substr(0,$('#dob').val().length - 1));
+				}
+				else
+				$("#dob").val(get_date.slice(0,-1));
+			
+			}
 		}
 		return isDate($('#dob'));
 		//$("#dob").parent().removeClass('has-error'); return true;	
@@ -271,9 +288,7 @@ $(document).ready(function(e) {
 	var minYear = 1875;
 	var maxYear = new Date().getFullYear();
 	function isDate(element) {
-	if (element.val().length == 2 || element.val().length == 5){
-		element.val(element.val() + "/");
-	}
+		
     var dtStr = element.val();
     
     var daysInMonth = DaysArray(12)
