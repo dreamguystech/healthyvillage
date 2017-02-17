@@ -1,7 +1,7 @@
 var base_url = "https://healthfirst.yosicare.com/dev/hf-app/";
 $("#pagecontent").hide();
 $(document).ready(function(e) {
-	//if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
+	if(!window.localStorage.getItem("pat_id")){ window.location.href="index.html"; }
 	maritalList();
 	if(window.localStorage.getItem("prac_id")){ demographicList(); $("#app_submit").parent().show();}
 	relationsList(); getLifestyle(); frequencylist();relationshipList();
