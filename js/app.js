@@ -155,7 +155,7 @@ $(document).ready(function(e) {
 	fname.on('blur keyup',validateFname);
 	lname.on('blur keyup',validateLname);
 	dob.on('blur keyup',validateDob);
-	cphone.on('blur keyup',validateCphone);
+	cphone.on('blur keyup focus',validateCphone);
 	cemail.on('blur keyup',validateCemail);
 	fm_gender.on('blur keyup change',validateCgender);
 	
@@ -231,31 +231,48 @@ $(document).ready(function(e) {
 		}else{ var get_date = $('#dob').val();
 			//var chk_slh = $('#dob').val().substr(0,$('#dob').val().length - 1);
 			//$("#cconf").val(chk_slh.substr(chk_slh.length - 1));
-			if($('#dob').val().length < 7){  $("#cconf").val($('#dob').val().length);
-				if($('#dob').val().length == 4 || $('#dob').val().length == 2 || $('#dob').val().length == 3 ){//alert($('#dob').val().substr(0,$('#dob').val().length - 1));
-				//$("#cconf").val($('#dob').val().length);
-					$("#dob").val($('#dob').val().substr(0,$('#dob').val().length - 1));
+			if($('#dob').val().length < 7){  //$("#cconf").val($('#dob').val().length);
+				if($('#dob').val().length == 3 || $('#dob').val().length == 6 || $('#dob').val().length == 4 ){
+					$("#dob").val(get_date.substr(0,get_date.length));
 					
 				}
 				else{
-				$("#dob").val(get_date.slice(0,-1));
-				}
-			
+					$("#dob").val(get_date.slice(0,-1));
+				} 
 			}
 		}
 		return isDate($('#dob'));
 		//$("#dob").parent().removeClass('has-error'); return true;	
 	}
 	
-	function validateCphone(){
+	function validateCphone(e){
 		var cphone  = $('#cphone').val();
-		if(cphone == '')
-		{
-			$('#cphone').parent().addClass("has-error");				
+		if ($('#cphone').val().length === 0) {
+			$('#cphone').val('(');
+		} var key =0;
+		if(e) key = e.keyCode;
+		//var key = e.keyCode || 0;
+		if (key !== 8 && key !== 9) {
+			if ($('#cphone').val().length === 4) {
+				$('#cphone').val($('#cphone').val() + ')');
+			}
+			if ($('#cphone').val().length === 5) {
+				$('#cphone').val($('#cphone').val() + ' ');
+			}			
+			if ($('#cphone').val().length === 9) {
+				$('#cphone').val($('#cphone').val() + '-');
+			}
+		}
+		var regexp = /\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/; 
+		if(regexp.test(cphone)){
+			$("#cphone").parent().removeClass("has-error");
+			return true;
+		}
+		else{
+			$('#cphone').parent().addClass("has-error");
 			return false;
 		}
 		
-		$("#cphone").parent().removeClass('has-error'); return true;	
 	}
 	function validateCgender(){
 		var fm_gender  = $('#fm_gender').val();
