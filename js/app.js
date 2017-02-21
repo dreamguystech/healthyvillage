@@ -216,22 +216,21 @@ $(document).ready(function(e) {
 		$("#lname").parent().removeClass('has-error'); return true;	
 	}
 	
-	function validateDob(e){ //alert(e.keyCode);
+	function validateDob(e){ 
 		var dob  = $('#dob').val();
 		if(dob == '')
 		{
 			$('#dob').parent().addClass("has-error");				
 			return false;
 		}
+		if(e){
 		if (e.keyCode != 8)
 		{
 				if ($('#dob').val().length == 2 || $('#dob').val().length == 5){
 					$('#dob').val($('#dob').val() + "/");
 				}
 		}else{ var get_date = $('#dob').val();
-			//var chk_slh = $('#dob').val().substr(0,$('#dob').val().length - 1);
-			//$("#cconf").val(chk_slh.substr(chk_slh.length - 1));
-			if($('#dob').val().length < 7){  //$("#cconf").val($('#dob').val().length);
+			if($('#dob').val().length < 7){  
 				if($('#dob').val().length == 3 || $('#dob').val().length == 6 || $('#dob').val().length == 4 ){
 					$("#dob").val(get_date.substr(0,get_date.length));
 					
@@ -241,8 +240,8 @@ $(document).ready(function(e) {
 				} 
 			}
 		}
+		}
 		return isDate($('#dob'));
-		//$("#dob").parent().removeClass('has-error'); return true;	
 	}
 	
 	function validateCphone(e){
